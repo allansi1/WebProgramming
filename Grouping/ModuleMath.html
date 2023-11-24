@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function myTest(s1, s2) {
+            if (isNaN(s1) || s1 < 0 || s1 > 11 || s1 != parseInt(s1)) {
+                myMSg("Premier argument invalid");
+                return false;
+            }
+            else if (isNaN(s2) || s2 < 0 || s2 > 11 || s2 != parseInt(s2)) {
+                myMSg("Deuxieme argument invalid");
+                return false;
+            }
+            else {
+                myMSg("OK")
+                return true;
+
+            }
+
+        }
+
+        function myAdd(s1, s2) {
+            if (myTest(s1, s2)) {
+                document.getElementById("i3").value = (Number(s1) + Number(s2)) % 12;
+            }
+
+        }
+
+        function mySubstract(s1, s2) {
+            if (myTest(s1, s2)) {
+                //var x = (Number(s1) - Number(s2)) % 12;
+                //document.getElementById("i3").value = x >=0 ? x : (x+12);
+                document.getElementById("i3").value = ((Number(s1) - Number(s2) % 12) + 12) % 12;
+
+            }
+
+        }
+        function myGetValue1() {
+            return document.getElementById("i1").value;
+        }
+
+        function myGetValue2() {
+            return document.getElementById("i2").value;
+        }
+
+        function myMSg(msg) {
+            document.getElementById("p1").innerHTML = msg
+
+
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="i1"> <br>
+    <input type="text" id="i2"> <br>
+    <input type="text" id="i3" readonly> <br>
+    <button type="button" onclick="myAdd(myGetValue1(), myGetValue2())">Add</button>
+    <button type="button" onclick="mySubstract(myGetValue1(), myGetValue2())">Substract</button>
+    <button type="button" onclick="myTest(myGetValue1(),myGetValue2())">Test</button>
+    <p id="p1"></p>
+
+</body>
+
+</html>

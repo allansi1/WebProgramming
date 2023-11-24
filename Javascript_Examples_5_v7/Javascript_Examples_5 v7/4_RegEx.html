@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Regular Expression</title>
+
+    <script>
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += "&nbsp;&nbsp;" + x + '<br />';
+        }
+    </script>
+
+</head>
+<body>
+    <p id="id1"> </p>
+    <script>
+
+        //==========================================================================
+        //
+        // Écrire une exp. reg.  pour valide des numéros téléphoniques. 
+        //  Formats valides sont: 
+        //     +n (nnn) nnn-nnnn
+        //     +nn (nnn) nnn-nnnn
+        //     +nnn (nnn) nnn-nnnn
+        //     (nnn) nnn-nnnn
+        //     +n nnn-nnn-nnnn
+        //     +nn nnn-nnn-nnnn
+        //     +nnn nnn-nnn-nnnn
+        //     nnn-nnn-nnnn
+        //
+        //==========================================================================
+
+        var regex = /^(\+\d{1,3}[ ])?(\(\d{3}\)[ ]|\d{3}-)\d{3}-\d{4}$/;
+
+        //changeId1(regex.source);
+
+        var t; 
+
+        t = "+1 (514) 999-9999"; 
+        changeId1(t + " : " + (regex.test(t))); 
+
+        t = "+55 (514) 999-9999";
+        changeId1(t + " : " + (regex.test(t))); 
+
+        t = "+515 (514) 999-9999";
+        changeId1(t + " : " + (regex.test(t))); 
+
+        t = "(514) 999-9999";
+        changeId1(t + " : " + (regex.test(t))); 
+
+        t = "+1 514-999-9999";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "+55 514-999-9999";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "+515 514-999-9999";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "514-999-9999";
+        changeId1(t + " : " + (regex.test(t))); 
+
+        t = "+1 514 999-9999";
+        changeId1(t + " : " + (regex.test(t))); 
+       
+    </script>
+
+</body>
+</html>

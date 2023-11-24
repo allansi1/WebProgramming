@@ -1,0 +1,32 @@
+name: Mary Brown
+sex: female
+num_visitors: 3
+duration: 10
+hotel_stars: s_3
+room_type: semi-suite
+activities: bus-tour 
+----------- 
+name: Anne Smith
+sex: female
+num_visitors: 2
+duration: 1
+hotel_stars: s_3
+room_type: semi-suite
+activities: spa 
+----------- 
+name: Anne Smith
+sex: female
+num_visitors: 2
+duration: 1
+hotel_stars: s_3
+room_type: semi-suite
+activities: spa 
+----------- 
+name: Mary Smith
+sex: female
+num_visitors: 2
+duration: 1
+hotel_stars: s_4
+room_type: suite
+activities: bus-tour spa 
+----------- 

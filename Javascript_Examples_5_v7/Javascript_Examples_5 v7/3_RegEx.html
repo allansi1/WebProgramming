@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Regular Expression</title>
+
+    <script>
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += "&nbsp;&nbsp;" + x;
+        }
+    </script>
+
+</head>
+<body>
+    <p id="id1"> </p>
+    <script>
+              
+        var s = ["Mary  Brown", "Mary-Brown", "Mary\tBrown", "Mary--Brown"];
+
+        //===========================================================================
+
+        s.forEach(v => { changeId1(/^[A-Z]([a-z]|(([ ]+|-)[A-Z]))*$/.test(v)); });
+        changeId1('<br/>');
+
+        var regex1 = /^[A-Z]([a-z]|(([ ]+|-)[A-Z]))*$/;
+
+        s.forEach(v => { changeId1(regex1.test(v)); });
+        changeId1('<br/>');
+
+        //===========================================================================
+
+        s.forEach(v => { changeId1(/^[A-Z]([a-z]|(([ ]+|-)[A-Z]))*$/.test(v)); });
+        changeId1('<br/>');
+
+        var regex2 = new RegExp("^[A-Z]([a-z]|(([ ]+|-)[A-Z]))*$");
+       
+        s.forEach(v => { changeId1(regex2.test(v)); });
+        changeId1('<br/>');
+
+        //===========================================================================
+
+        changeId1('L\'expression reguliere 1 est ' + regex1.source + '<br/>');
+        changeId1('L\'expression reguliere 2 est ' + regex2.source + '<br/>');
+
+    </script>
+
+
+</body>
+</html>

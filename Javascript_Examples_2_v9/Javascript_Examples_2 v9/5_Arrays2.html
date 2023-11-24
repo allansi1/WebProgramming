@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Arrays</title>
+    <script>
+        var arr1 = ["Yesterday", "Today", "Tomorrow"];
+        var arr2 = [5, "Today", [10, "Tomorrow"], function (x, y) { return x + y }];
+
+        var myObj= { toString:  () => { return "I am a string"; },
+                     valueOf : () => { return 9; }};
+
+        var myObj2= { toString:  () => { return "I am a string"; }};
+
+        var myObj3= { valueOf : () => { return 9; }};
+
+        var myObj4= {};
+
+        var arr3 = ["Yesterday", "Today", "Tomorrow"];
+        arr3.toString = () => { return "I am a string"; };
+        arr3.valueOf = () => { return 8; };
+
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML = x;
+        }
+    </script>
+</head>
+<body>
+    <p id="id1">Result : </p>
+    <input type="button" onclick="changeId1('arr1 = '+arr1)" value="arr1" /> <br />
+    <input type="button" onclick="changeId1('arr1.toString() = ' + arr1.toString())" value="arr1.toString" /> <br />
+    <input type="button" onclick="changeId1('arr1.valueOf() = ' + arr1.valueOf())" value="arr1.valueOf" /> <br />
+
+    <input type="button" onclick="changeId1('arr2 = '+arr2)" value="arr2" /> <br />
+    <input type="button" onclick="changeId1('arr2.toString() = ' + arr2.toString())" value="arr2.toString" /> <br />
+    <input type="button" onclick="changeId1('arr2.valueOf() = ' + arr2.valueOf())" value="arr2.valueOf" /> <br />
+
+    <!--
+        In the next three buttons, it is called valueOf() and then toString()
+    -->
+    <input type="button" onclick="changeId1('myObj + 1 = '+(myObj+1))" value="myObj + 1" /> <br />
+    <input type="button" onclick="changeId1('myObj -1 = '+(myObj-1))" value="myObj -1" /> <br />
+    <input type="button" onclick="changeId1('myObj = '+ myObj)" value="myObj" /> <br />
+    <input type="button" onclick="changeId1('myObj.toString() = '+ myObj.toString())" value="myObj.toString()" /> <br />
+    <input type="button" onclick="changeId1('myObj.valueOf() = '+ myObj.valueOf())" value="myObj.valueOf()" /> <br />
+    <input type="button" onclick="changeId1('myObj.valueOf().toString() = '+ myObj.valueOf().toString())" value="myObj.valueOf().toString()" /> <br />
+    <input type="button" onclick="changeId1('myObj.toString().valueOf() = '+ myObj.toString().valueOf())" value="myObj.toString().valueOf()" /> <br />
+    <!--
+        the method join will call toString()
+    -->
+    <input type="button" onclick="changeId1(['myObj = ', myObj].join(''))" value="(['myObj = ', myObj].join('')" /> <br />
+
+    <input type="button" onclick="changeId1('myObj2 = '+ myObj2)" value="myObj2" /> <br />
+    <input type="button" onclick="changeId1('myObj2.toString() = '+ myObj2.toString())" value="myObj2.toString()" /> <br />
+    <input type="button" onclick="changeId1('myObj2.valueOf() = '+ myObj2.valueOf())" value="myObj2.valueOf()" /> <br />
+    <input type="button" onclick="changeId1('myObj2.valueOf().toString() = '+ myObj2.valueOf().toString())" value="myObj2.valueOf().toString()" /> <br />
+
+    <input type="button" onclick="changeId1('myObj3 = '+ myObj3)" value="myObj3" /> <br />
+    <input type="button" onclick="changeId1('myObj3.toString() = '+ myObj3.toString())" value="myObj3.toString()" /> <br />
+    <input type="button" onclick="changeId1('myObj3.valueOf() = '+ myObj3.valueOf())" value="myObj3.valueOf()" /> <br />
+    <input type="button" onclick="changeId1('myObj3.valueOf().toString() = '+ myObj3.valueOf().toString())" value="myObj3.valueOf().toString()" /> <br />
+
+    <input type="button" onclick="changeId1('myObj4 = '+ myObj4)" value="myObj4" /> <br />
+    <input type="button" onclick="changeId1('myObj4.toString() = '+ myObj4.toString())" value="myObj4.toString()" /> <br />
+    <input type="button" onclick="changeId1('myObj4.valueOf() = '+ myObj4.valueOf())" value="myObj4.valueOf()" /> <br />
+    <input type="button" onclick="changeId1('myObj4.valueOf().toString() = '+ myObj4.valueOf().toString())" value="myObj4.valueOf().toString()" /> <br />
+
+    <input type="button" onclick="changeId1('arr1 + 2 = '+(arr1+2))" value="arr1+2" /> <br />
+    <input type="button" onclick="changeId1('arr3 + 2 = '+(arr3+2))" value="arr3+2" /> <br />
+    <input type="button" onclick="changeId1('arr3 = '+ arr3)" value="arr3" /> <br />
+    <input type="button" onclick="changeId1('arr3.toString() = ' + arr3.toString())" value="arr3.toString" /> <br />
+    <input type="button"
+           onclick="changeId1('arr3[0]='+arr3[0]+'; '+'arr3[1]='+arr3[1]+'; '+'arr3[2]='+arr3[2])"
+           value="arr3[]" /> <br />
+
+    <input type="button" onclick="changeId1('typeof arr1 = '+(typeof arr1))" value="typeof arr1" /> <br />
+    <input type="button" onclick="changeId1('typeof arr3 = '+(typeof arr3))" value="typeof arr3" /> <br />
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JS Comparisons</title>
+</head>
+<body>
+
+    <p id="id1">Initial text</p>
+    <script>
+
+        let w = 'Tests: <br>';
+
+        if ('' == false) { w = w + "''==false is true<br>"; }
+        else { w = w + "''==false is false<br>"; }
+
+        if ('') { w = w + "'' is treated as true<br>"; }
+        else { w = w + "'' is treated as false<br>"; }
+
+        if ((!'') == true) { w = w + "(!'')==true is true<br>"; }
+        else { w = w + "(!'')==true is false<br>"; }
+
+        if (!'') { w = w + "!'' is treated as true<br>"; }
+        else { w = w + "!'' is treated as false<br>"; }
+
+        w = w + "<br>";
+
+        if (0 == false) { w = w + "0==false is true<br>"; }
+        else { w = w + "0==false is false<br>"; }
+
+        if (0) { w = w + "0 is treated as true<br>"; }
+        else { w = w + "0 is treated as false<br>"; }
+
+        if ((!0) == true) { w = w + "(!0)==true is true<br>"; }
+        else { w = w + "(!0)==true is false<br>"; }
+
+        if (!0) { w = w + "!0 is treated as true<br>"; }
+        else { w = w + "!0 is treated as false<br>"; }
+
+        w = w + "<br>";
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        if ('0') { w = w + "'0' is treated as true<br>"; }
+        else { w = w + "'0' is treated as false<br>"; }
+
+        if ((!'0') == false) { w = w + "(!'0')==false is true<br>"; }
+        else { w = w + "(!'0')==false is false<br>"; }
+
+        if (!'0') { w = w + "!'0' is treated as true<br>"; }
+        else { w = w + "!'0' is treated as false<br>"; }
+
+        w = w + "<br>";
+
+        if (5 == false) { w = w + "5==false is true<br>"; }
+        else { w = w + "5==false is false<br>"; }
+
+        if (5 == true) { w = w + "5==true is true<br>"; }
+        else { w = w + "5==true is false<br>"; }
+
+        if (5) { w = w + "5 is treated as true<br>"; }
+        else { w = w + "5 is treated as false<br>"; }
+
+        if ((!5) == false) { w = w + "(!5)==false is true<br>"; }
+        else { w = w + "(!5)==false is false<br>"; }
+
+        if (!5) { w = w + "!5 is treated as true<br>"; }
+        else { w = w + "!5 is treated as false<br>"; }
+
+        w = w + "<br>";
+
+        if ('aabb' == false) { w = w + "'aabb'==false is true<br>"; }
+        else { w = w + "'aabb'==false is false<br>"; }
+
+        if ('aabb' == true) { w = w + "'aabb'==true is true<br>"; }
+        else { w = w + "'aabb'==true is false<br>"; }
+
+        if ('aabb') { w = w + "'aabb' is treated as true<br>"; }
+        else { w = w + "'aabb' is treated as false<br>"; }
+
+        if ((!'aabb') == false) { w = w + "(!'aabb')==false is true<br>"; }
+        else { w = w + "(!'aabb')==false is false<br>"; }
+
+        if (!'aabb') { w = w + "!'aabb' is treated as true<br>"; }
+        else { w = w + "!'aabb' is treated as false<br>"; }
+
+        w = w + "<br>";
+
+        if (null == false) { w = w + "null==false is true<br>"; }
+        else { w = w + "null==false is false<br>"; }
+
+        if (null == true) { w = w + "null==true is true<br>"; }
+        else { w = w + "null==true is false<br>"; }
+
+        if (null) { w = w + "null is treated as true<br>"; }
+        else { w = w + "null is treated as false<br>"; }
+
+        if ((!null) == false) { w = w + "(!null)==false is true<br>"; }
+        else { w = w + "(!null)==false is false<br>"; }
+
+        if (!null) { w = w + "!null is treated as true<br>"; }
+        else { w = w + "!null is treated as false<br>"; }
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+
+</body>
+</html>

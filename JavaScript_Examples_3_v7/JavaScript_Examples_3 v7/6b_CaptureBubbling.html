@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Event Capture phase vs Bubbling phase</title>
+    <style>
+        div {
+            margin: 4px 0;
+            padding: 10px;
+            background-color: aqua;
+            width: 80px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function myF(x) {
+            document.getElementById("demo").innerHTML += x + "<br>";
+         }
+    </script>
+</head>
+<body>
+
+    <div id="div1">
+        <button type="button" id="btn1">button1</button> <br />
+    </div>
+
+    <div id="div2">
+        <button type="button" id="btn2">button2</button> <br />
+    </div>
+
+    <div id="div3">
+        <button type="button" id="btn3">button3</button> <br />
+    </div>
+
+    <div id="div4">
+        <button type="button" id="btn4">button4</button> <br />
+    </div>
+
+    <div id="div5">
+        <button type="button" id="btn5a">button5a</button> <br />
+        <button type="button" id="btn5b">button5b</button> <br />
+    </div>
+
+    <button onclick="document.getElementById('demo').innerHTML = ''">Clear</button>
+
+    <p id="demo"></p>
+
+    <script>
+        /*
+        *  addEventListener("click", function, flag);
+        *     first argument: the event (without "on") --> click;
+        *     second argument: the function to executed on the event;
+        *     third argument: if true  this event will be executed in the capture phase (outer elements react first).
+        *                     if false this event will be executed in the bubbling phase (inner elements react first).
+        *                     (false is the default)
+        */
+
+        document.getElementById("btn1").addEventListener("click", () => myF("Button 1 - bubbling"), false);
+        document.getElementById("div1").addEventListener("click", () => myF("Div 1 - bubbling"), false);
+
+        document.getElementById("btn2").addEventListener("click", () => myF("Button 2 - capture"), true);
+        document.getElementById("div2").addEventListener("click", () => myF("Div 2 - capture"), true);
+
+        document.getElementById("btn3").addEventListener("click", () => myF("Button 3 - capture"), true);
+        document.getElementById("btn3").addEventListener("click", () => myF("Button 3 - bubbling"), false);
+        document.getElementById("div3").addEventListener("click", () => myF("Div 3 - capture"), true);
+        document.getElementById("div3").addEventListener("click", () => myF("Div 3 - bubbling"), false);
+
+        document.getElementById("btn4").onclick= () => myF("Button 4 - bubbling");
+        document.getElementById("div4").onclick= () => myF("Div 4 - bubbling");
+
+        document.getElementById("div5").addEventListener("click", () => myF("Welcome to div5"), true);
+        document.getElementById("btn5a").addEventListener("click", () => myF("You clicked button5a"), false);
+        document.getElementById("btn5b").addEventListener("click", () => myF("You clicked button5b"), false);
+        document.getElementById("div5").addEventListener("click", () => myF("Thanks for clicking div5 buttons"), false);
+
+    </script>
+
+</body>
+</html>

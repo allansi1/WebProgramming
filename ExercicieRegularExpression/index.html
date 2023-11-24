@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="id1">
+    <button type="button" onclick="MyValidate()">Validate</button>
+    <p id="id2">Initial text</p>
+
+    <script>
+        function MyValidate() {
+            var x = document.getElementById("id1").innerHTML;
+            const re = new RegExp("\d\d");
+            if (x[0 - 9]) {
+                document.getElementById("id2").innerHTML = "OK";
+            }
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Closure</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+        var factor = 10;
+
+        var twice;
+        var threeTimes;
+        var fourTimes;
+        var fiveTimes;
+
+        {
+            let factor = 2;                      // let makes factor a local variable of the block.
+            twice = number => number * factor;   // So factor = 2 is part of the closure of the function.
+        }
+
+        {
+            let factor = 3;                                       // let makes factor a local variable of the block.
+            threeTimes = (number) => { return number * factor; }; // So factor = 3 is part of the closure of the function.
+        }
+
+        {
+            let factor = 4;                      // let makes factor a local variable of the block.
+            fourTimes = function (number) {      // So factor = 4 is part of the closure of the function.
+                return number * factor;
+            }
+        }
+
+        (function() {
+            var factor = 5;                        // var makes factor a local variable of the function.
+            fiveTimes = number => number * factor; // So factor = 5 is part of the closure of the function.
+        })();
+
+        var myFunction = number => number * factor;
+
+        document.getElementById("id1").innerHTML += " factor = " + factor + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(5) = " + twice(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(7) = " + twice(7) + " <br>";
+
+        document.getElementById("id1").innerHTML += " threeTimes(50) = " + threeTimes(50) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fourTimes(100) = " + fourTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fiveTimes(100) = " + fiveTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " myFunction(5) = " + myFunction(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += "<br/> If the global vriable factor is changed: <br/>"
+
+        factor=1000;
+
+        document.getElementById("id1").innerHTML += " factor = " + factor + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(5) = " + twice(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(7) = " + twice(7) + " <br>";
+
+        document.getElementById("id1").innerHTML += " threeTimes(50) = " + threeTimes(50) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fourTimes(100) = " + fourTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fiveTimes(100) = " + fiveTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " myFunction(5) = " + myFunction(5) + " <br>";
+    </script>
+</body>
+</html>

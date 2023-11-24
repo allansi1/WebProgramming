@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+
+        function f1(a) {
+            a = 0;
+        }
+
+        function f2 (a) {
+            for (let i = 0; i < a.length; ++i) {
+                a[i] = 0;
+            }
+        }
+
+        function f3(a){
+            var temp =  [0, 0, 0];
+            a = temp;
+        }
+
+        var b = 10;
+        document.getElementById("id1").innerHTML += "b = " + b +"<br>";
+        f1(b);
+        document.getElementById("id1").innerHTML += "b = " + b +"<br>";
+
+        var c = [1, 2, 3];
+        document.getElementById("id1").innerHTML += "c = [" + c + "] <br>";
+        f2(c);
+        document.getElementById("id1").innerHTML += "c = [" + c + "] <br>";
+
+        var d = [1, 2, 3];
+        document.getElementById("id1").innerHTML += "d = [" + d + "] <br>";
+        f3(d);
+        document.getElementById("id1").innerHTML += "d = [" + d + "] <br>";
+
+    </script>
+
+</body>
+</html>

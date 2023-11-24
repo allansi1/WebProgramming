@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>Array Assignment</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+
+        var x = 3;
+        var y = 5;
+        y = x;
+        document.getElementById("id1").innerHTML += "y = " + y + " <br>";
+
+        x = 10;
+        document.getElementById("id1").innerHTML += "And now: <br>"
+        document.getElementById("id1").innerHTML += "y = " + y + " <br>";
+
+        var a = [ 1, 2, 3 ];
+        var b = [ 4, 5 ];
+        b = a;
+        for (let i = 0; i < b.length; i++) {
+            document.getElementById("id1").innerHTML += "b[" + i + "] = " + b[i] +" <br>";
+        }
+
+        a[0] = 10;
+        document.getElementById("id1").innerHTML += "And now: <br>"
+        for (let i = 0; i < b.length; i++) {
+            document.getElementById("id1").innerHTML += "b[" + i + "] = " + b[i] + " <br>";
+        }
+
+    </script>
+</body>
+</html>

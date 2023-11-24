@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS var and let</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+
+        // Difference of var and let in the declaration of the "for" index variable inside the "for".
+
+        document.getElementById('id1').innerHTML += "Using var <br/>";
+        var fs1 = [];
+        for (var i = 0; i < 3; i++) {
+            fs1[i] = function () {            // each function in the array fs1[] refers to the GLOBAL variable i,
+                return i;                     // at the end of the loop i = 3. The variable i is not in closure of 
+            };                                // of the functions in the array fs1[].
+        }
+        for (var j = 0; j < 3; j++) {
+            document.getElementById('id1').innerHTML += "fs1[" + j + "]() = " + fs1[j]()+"<br/>";
+        }
+
+        document.getElementById('id1').innerHTML += "<br/> Using let <br/>";
+        var fs2 = [];
+        for (let i = 0; i < 3; i++) {
+            fs2[i] = function () {           // Each function in the array fs2[] refers to the LOCAL variable i,
+                return i;                    // so it keeps the value of i in the moment it is added to the array 
+            };                               // (closure of the function).
+        }
+        for (var j = 0; j < 3; j++) {
+            document.getElementById('id1').innerHTML += "fs2[" + j + "]() = " + fs2[j]() + "<br/>";
+        }
+
+        document.getElementById('id1').innerHTML += "<br/> Using var in a special way <br/>";
+        var fs3 = [];
+
+        function make_fs(i) {
+            return function () {
+                return i;
+            };
+        }
+
+        for (var i = 0; i < 3; i++) {       // The variable i is GLOBAL variable, but i is LOCAL in make_fs(i).
+            fs3[i] = make_fs(i);            // Each function in the array fs3[] refers to such LOCAL variable i,
+        }                                   // so it keeps the value of i in the moment it is created in make_fs(i)
+        for (var j = 0; j < 3; j++) {       // (closure of the function). 
+            document.getElementById('id1').innerHTML += "fs3[" + j + "]() = " + fs3[j]() + "<br/>";
+        }
+
+    </script>
+</body>
+</html>

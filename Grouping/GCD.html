@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function myTest(s1, s2) {
+            if (isNaN(s1) || s1 != parseInt(s1)) {
+                myMSg("Premier argument invalid");
+                return false;
+            }
+            else if (isNaN(s2) || s2 != parseInt(s2)) {
+                myMSg("Deuxieme argument invalid");
+                return false;
+            }
+            else {
+
+                myMSg("OK")
+                return true;
+            }
+
+        }
+
+        function myGCD(s1, s2) {
+            if (myTest(s1, s2)) {
+                s1 = Math.abs(Number(s1));
+                s2 = Math.abs(Number(s2));
+
+                for (let i = Math.min(s1, s2); i >= 2; i--) {
+                    if ((s1 % i == 0) && (s2 % i == 0)) {
+                        document.getElementById("i3").value = i;
+                        return;
+                    }
+                }
+
+            }
+
+        }
+
+        function myGCD2(s1, s2) {
+            if (myTest(s1, s2)) {
+                s1 = Math.abs(Number(s1));
+                s2 = Math.abs(Number(s2));
+
+                while (s2 != 0) {
+                    let t = s2;
+                    s2 = s1 % s2;
+                    s1 = t;
+                }
+                document.getElementById("i3").value = s1;
+
+            }
+
+        }
+
+
+        function myGetValue1() {
+            return document.getElementById("i1").value;
+        }
+
+        function myGetValue2() {
+            return document.getElementById("i2").value;
+        }
+
+        function myMSg(msg) {
+            document.getElementById("p1").innerHTML = msg
+
+
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="i1"> <br>
+    <input type="text" id="i2"> <br>
+    <input type="text" id="i3" readonly> <br>
+    <button type="button" onclick="myGCD(myGetValue1(), myGetValue2())">GCD</button>
+    <button type="button" onclick="myGCD2(myGetValue1(), myGetValue2())">GCD2</button>
+    <button type="button" onclick="myTest(myGetValue1(),myGetValue2())">Test</button>
+    <p id="p1"></p>
+
+</body>
+
+</html>

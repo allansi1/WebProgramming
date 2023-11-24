@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <p id="id1"></p>
+
+    <script>
+        arr = [10, 12, 31]; // array
+
+        document.getElementById("id1").innerHTML += "for: <br>";
+        /* 
+         * for --> the program must control de index variable
+         */
+        for (let i = 0; i < arr.length ; i++ ) {
+            document.getElementById("id1").innerHTML += "array arr[" + i + "] = " + arr[i] + "<br>";
+        }
+
+        document.getElementById("id1").innerHTML += "<br> for-in: <br>";
+        /* 
+         * for-in --> iterates over the index of the array
+         */
+        for (i in arr) {  
+            document.getElementById("id1").innerHTML += "array arr["+ i+"] = "+ arr[i]  +"<br>";
+        }
+
+        document.getElementById("id1").innerHTML += "<br> for-of: <br>";
+        /* 
+         * for-of --> iterates over the elements of the array
+         */
+        var i = 0;   // i is just a counter, never used as index of the array
+        for (a of arr) {
+            document.getElementById("id1").innerHTML += "array arr[" + i + "] = " + a + "<br>";
+            i++;
+        }
+      
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function myTest(s) {
+            var open = ["(", "[", "{", "<"];
+            var close = [")", "]", "}", ">"];
+            var pile = new Array();
+            var i;
+            var stop = false;
+            for (i = 0; (!stop) && (i < s.length); i++) {
+                let temp_o = open.indexOf(s[i]);
+                if (temp_o != -1) {
+                    pile.push(new Array(temp_o, i))//(posição do Array, posição open e close)
+                }
+                let temp_c = close.indexOf(s[i]);
+                if (temp_c != -1) {
+                    if ((pile.length != 0) && (pile[pile.length - 1][0] == temp_c)) {//[no topo da pile], [caractere]
+                        pile.pop();
+                    }
+                    else {
+                        stop = true;
+                    }
+                }
+            }
+            var msg = "";
+            if ((!stop) && (pile.length == 0)) {
+                msg = "The string " + s + " is balanced" + "<br/>";
+            }
+            else if (pile.length != 0) {
+                msg = "The string " + s + " has an unclosed group at position " + pile[pile.length - 1][1] + "<br/>";
+            }
+            if (stop) {
+                msg += "The string " + s + " has incorrect closing at position " + (i - 1) + "<br/>";
+            }
+            document.getElementById("p1").innerHTML = msg;
+        }
+        function myGetValue() {
+            return document.getElementById("i1").value;
+        }
+    </script>
+    <title>Grouping</title>
+</head>
+
+<body>
+    <input id="i1" type="text">
+    <button type="button" onclick="myTest(myGetValue())">Test</button>
+    <p id="p1"></p>
+
+</body>
+
+</html>

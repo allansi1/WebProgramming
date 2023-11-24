@@ -1,0 +1,13 @@
+
+
+<h2>Exercice Node</h2>
+
+<form action="nom_email" method="post" enctype="multipart/form-data">
+
+    Name: <input type="text" name="name"><br>
+    E-mail: <input type="text" name="email"><br>
+
+    <input type="submit">
+
+</form>
+

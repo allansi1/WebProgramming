@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Regular Expression</title>
+    <style>
+        body { 
+            padding-top: 20px;
+            padding-left: 10px;
+        }
+    </style>
+    <script>
+        function validate() {
+            var n = document.getElementById("id_name").value;
+            if (n == "") {
+                alert("Le nom ne peut pas être vide");
+                return false;
+            }
+            else {
+                if (!/^[ ]*[A-Z]([a-z]|(([ ]+|-)[A-Z]))*[ ]*$/.test(n)) {
+                    alert("Nom Invalide");
+                    return false;
+                }
+                else {
+                    /*
+                     *  remove repeated blanks and 
+                     *  remove leading and trailing blanks, if they exist.
+                     */
+                    document.getElementById("id_name").value = n.replace(/[ ][ ]+/g, ' ').replace(/(^[ ])|([ ]$)/g, '');
+                    // Another solution:
+                    // .trim removes leading and trailing blanks, if they exist.
+                    //document.getElementById("id_name").value = n.replace(/[ ][ ]+/g, ' ').trim();
+                    return true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    Name:
+    <input id="id_name" type="text" name="user_name" size="30" maxlength="50" placeholder="your name">
+    <button type="button" onclick="validate()">Validate</button>
+</body>
+</html>

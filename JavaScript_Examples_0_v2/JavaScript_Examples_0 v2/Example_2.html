@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <p id="id1">Initial text</p>
+
+    <script>
+        let w = 'Tests: <br>';
+
+        w = w + "-----------------------<br>";
+
+        w = w + "parseInt(3.9) = " + parseInt(3.9) + "<br>";      // truncate
+        w = w + "parseInt(-3.9) = " + parseInt(-3.9) + "<br>";    // truncate
+        w = w + '(1 + "5" - 1) = ' + (1 + "5" - 1) + "<br>";
+        w = w + '("5" + 1 - 1) = ' + ("5" + 1 - 1) + "<br>";
+        w = w + '("5" - 1 + 1) = ' + ("5" - 1 + 1) + "<br>";
+
+        w = w + "-----------------------<br>";
+        w = w + "(2 + false) = " + (2 + false) + "<br>";
+        w = w + "(false == 0) is " + (false == 0) + "<br>";
+        w = w + "(2 + true) = " + (2 + true) + "<br>";
+        w = w + "(true == 1) is " + (true == 1) + "<br>";
+        w = w + "(2 + null) = " + (2 + null) + "<br>";
+        w = w + "(null == 0) is " + (null == 0) + "<br>";
+        w = w + "(2 + undefined) = " + (2 + undefined) + "<br>";
+        w = w + "(undefined == 0) is " + (undefined == 0) + "<br>";
+        w = w + "(undefined == null) is " + (undefined == null) + "<br>";
+
+        w = w + "-----------------------<br>";
+        w = w + "(5 == true) is " + (5 == true) + "<br>";
+        w = w + "(5 == false) is " + (5 == false) + "<br>";
+        if (5) { w = w + "5 is treated as true <br>"; }
+        else { w = w + "5 is treatead as false <br>";}
+        w = w + "((!5) == true) is " + ((!5) == true) + "<br>";
+        w = w + "((!5) == false) is " + ((!5) == false) + "<br>";
+        if (!5) { w = w + "!5 is treated as true <br>"; }
+        else { w = w + "!5 is treatead as false <br>";}
+
+        w = w + "-----------------------<br>";
+        w = w + "((!5) == true) is " + ((!5) == true) + "<br>";
+        w = w + "(5 == !true) is " + (5 == !true) + "<br>";
+        w = w + "((!!5) == 5) is " + ((!!5) == 5) + "<br>";
+
+        w = w + "-----------------------<br>";
+        x=undefined;
+        w = w + "x = " + x + " <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x=5;
+        w = w + "x = " + x + " <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x="aabb";
+        w = w + "x = " + x + " <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x=null;
+        w = w + "x = " + x + " <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x=NaN;
+        w = w + "x = " + x + " <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x="0";
+        w = w + "x = \"0\" <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>";
+        x="";
+        w = w + "x = \"\" <br>";
+        w = w + "((!!x) == x) is " + ((!!x) == x) + "<br>"
+
+        w = w + "-----------------------<br>";
+        w = w + "['A', 'B', 'C', 'D', 'C'].indexOf('C') is " + ['A', 'B', 'C', 'D', 'C'].indexOf('C') +"<br>";
+        w = w + "['A', 'B', 'C', 'D', 'C'].indexOf('E') is " + ['A', 'B', 'C', 'D', 'C'].indexOf('E') + "<br>";
+        w = w + "['A', 'B', 'C', 'D', 'C'].lastIndexOf('C') is " + ['A', 'B', 'C', 'D', 'C'].lastIndexOf('C') + "<br>";
+        w = w + "['A', 'B', 'C', 'D', 'C'].lastIndexOf('E') is " + ['A', 'B', 'C', 'D', 'C'].lastIndexOf('E') + "<br>";
+
+        w = w + "-----------------------<br>";
+        //var x = prompt("enter a number");
+        //w =w + "2 * " + x + " = " + 2 * x + "<br>";
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+</body>
+</html>

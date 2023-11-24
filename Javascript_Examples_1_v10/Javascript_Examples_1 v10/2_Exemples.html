@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Basics</title>
+
+    <!--example of a IN-LINE JS script included in the head section-->
+    <script>
+        function myF() {
+            document.writeln('Hello 3 <br>');
+            document.writeln('Hello 3 again<br>');
+        }
+    </script>
+
+    <!--example of a external JS script included in the head section-->
+    <script src="JSFunctions1.js"></script>
+
+</head>
+<body>
+
+    <p id="id1">Good Morning</p>
+
+    <!--example of a IN-LINE JS script included in the body section-->
+    <script type="text/javascript">document.getElementById("id1").innerHTML += " Good Afternoon"</script>
+
+    <!--example of a IN-LINE JS script (using document.writeln) included in the body section-->
+    <script>
+        document.writeln("Hello 1 <br>");
+        document.writeln("Hello 2 <br>");
+    </script>
+
+    <!--example of a external JS script included in the body section-->
+    <script src="Hello4.js"></script> <br />
+
+    <!--examples of calling the functions defined in JS scripts-->
+
+    <!-- Note that since myF() uses document.write / document.writeln, when 
+        it is executed AFTER the page is loaded, the whole page is replaced -->
+    <input type="button" onclick="myF()" value="Try me" /> <br />
+
+    <input type="button" onclick="myF1()" value="F1" /> <br />
+    <input type="button" onclick="myF2()" value="F2" /> <br />
+    <input type="button" onclick="myF3()" value="F3" /> <br />
+    <input type="button" onclick="myF4()" value="F4" /> <br />
+    <input type="button" onclick="myF5()" value="F5" /> <br />
+    <input type="button" onclick="myF6()" value="F6" /> <br />
+    <input type="button" onclick="myF7()" value="F7" /> <br />
+    <input type="button" onclick="myF8()" value="F8" /> <br />
+    <input type="button" onclick="myF9()" value="F9" /> <br />
+    <input type="button" onclick="myF10()" value="F10" /> <br />
+
+</body>
+</html>

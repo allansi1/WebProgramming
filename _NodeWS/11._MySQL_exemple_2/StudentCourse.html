@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Student-Course</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/sc.css" />
+    <script>
+        function validate_user() {
+            var sn = document.forms["form1"]["user_sname"].value;
+            if (sn == "") {
+                alert("Family name must be filled out");
+                return false;
+            }
+            else {
+                if (!(/^[ ]*[A-Z]([a-z]|(([ ]+|-)[A-Z]))*[ ]*$/.test(sn))) {                
+                    alert("Invalid family name");
+                    return false;
+                }
+                else {
+                    document.forms["form1"]["user_sname"].value = sn.replace(/[ ][ ]+/g, ' ').replace(/(^[ ])|([ ]$)/g, '');     // remove repeated blanks 
+
+                    var gn = document.forms["form1"]["user_gname"].value;
+                    if (gn == "") {
+                        alert("Given name must be filled out");
+                        return false;
+                    }
+                    else {
+                        if (!(/^[ ]*[A-Z]([a-z]|(([ ]+|-)[A-Z]))*[ ]*$/.test(gn))) {
+                            alert("Invalid Given name");
+                            return false;
+                        }
+                        else {
+                            document.forms["form1"]["user_gname"].value = gn.replace(/[ ][ ]+/g, ' ').replace(/(^[ ])|([ ]$)/g, '');     // remove repeated blanks 
+                            return true;                    
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+     <script>
+        function add_Course(id, title){
+            document.getElementById("cs").innerHTML +="<input id=id_"+id+" type='checkbox' name="+id+" />"+
+                        "<label for=id_"+id+"> "+ title + "</label> <br />" ;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student-Course</h1>
+        <h2>Registration and Enrollment</h2>
+        <form name="form1" onsubmit="return validate_user()" action="scData" method="post">
+            <table>
+                <tr>
+                    <td>Family name:</td>
+                    <td>
+                        <input id="student_sn" type="text" name="user_sname" size="30" maxlength="50"
+                            placeholder="your family name" onfocus="this.value=''">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Given name:</td>
+                    <td>
+                        <input id="student_gn" type="text" name="user_gname" size="30" maxlength="50"
+                            placeholder="your given name" onfocus="this.value=''">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Courses:</td>
+                    <td id="cs">
+                        <!-- <input id="id_c001" type="checkbox" name="c001" />
+                        <label for="id_c001">Mathematics</label>
+                        <br />
+                        <input id="id_c002" type="checkbox" name="c002" />
+                        <label for="id_c002">Computer Science</label>
+                        <br />
+                        <input id="id_c003" type="checkbox" name="c003" />
+                        <label for="id_c003">French</label>
+                        <br />
+                        <input id="id_c004" type="checkbox" name="c004" />
+                        <label for="id_c004">History</label>
+                        <br /> -->
+                    </td>
+                </tr>
+            </table>
+            <input id="evaluate" type="submit" name="b_submit" value="Submit" />
+            <input id="reset" type="reset" name="b_reset" value="Reset" />
+            <p id="rp"></p>
+        </form>
+    </div>
+</body>
+
+</html>

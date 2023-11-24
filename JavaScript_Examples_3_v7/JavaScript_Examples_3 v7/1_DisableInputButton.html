@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <form>
+        <input type="button" onclick="alert('button OK clicked')" id="btn01" value="OK">
+    </form>
+
+    <p>
+        Click the "Disable" button to disable the "OK" button and <br />
+        Click the "Enable" button to enable the "OK" button. <br />
+        Click the "Hide" button to make the "OK" button not displayed and <br />
+        Click the "Show" button to make the "OK" button displayed. <br />
+        Click the "Invisible" button to make the "OK" button invisible and <br />
+        Click the "Visible" button to make the "OK" button visible.
+    </p>
+
+    <button type="button" onclick="disableElement()">Disable</button>
+
+    <button type="button" onclick="enableElement()">Enable</button>
+
+    <button type="button" onclick="hideElement()">Hide</button>
+
+    <button type="button" onclick="showElement()">Show</button>
+
+    <button type="button" onclick="invisibleElement()">Invisible</button>
+
+    <button type="button" onclick="visibleElement()">Visible</button>
+
+    <script>
+        function disableElement() {
+            document.getElementById("btn01").disabled = true;
+        }
+        function enableElement() {
+            document.getElementById("btn01").disabled = false;
+        }
+        function hideElement() {
+            document.getElementById("btn01").style.display = "none";
+        }
+        function showElement() {
+            document.getElementById("btn01").style.display = "block";
+        }
+        function invisibleElement() {
+            document.getElementById("btn01").style.visibility = "hidden";
+        }
+        function visibleElement() {
+            document.getElementById("btn01").style.visibility = "visible";
+        }
+    </script>
+
+</body>
+</html>

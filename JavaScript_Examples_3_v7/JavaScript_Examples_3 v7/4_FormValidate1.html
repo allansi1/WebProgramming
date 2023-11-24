@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+         if (x == "") {
+            alert("First name must be filled out");
+            return false;
+        }
+        x = document.forms["myForm"]["lname"].value;
+        if (x == "") {
+            alert("Last name must be filled out");
+            return false;
+        }
+        return true;
+    }
+    </script>
+</head>
+<body>
+
+    <form name="myForm" action="action_page.html" onsubmit="return validateForm()" method="get">
+    <!--
+    The "return" in the onsubmit is necessary, otherwise validateForm() will be executed,
+    but the result will not be considered. The form  will be submitted any way.
+    -->
+    <!--<form name="myForm" action="action_page.html" onsubmit="validateForm()" method="get">--> 
+        First name: <input type="text" name="fname"> <br />
+        Last name:  <input type="text" name="lname"> <br /> <br />
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+</body>
+</html>

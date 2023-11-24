@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Date</title>
+    <script>
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();          
+        }
+    </script>
+</head>
+<body>
+
+    <p>Click the button to display the date.</p>
+
+    <!--<button id="btn" onclick="displayDate()">?</button>-->
+    <button type="button" id="btn1">?</button> <br />
+    <button type="button" id="btn2">?</button> <br />
+    <button type="button" onclick="document.getElementById('demo').innerHTML = ''">Clear</button>
+
+
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("btn1").innerHTML = "The time is?";
+        /* 
+         *  addEventListener("click", displayDate, false);
+         *     first argument: the event (without "on") --> click;
+         *     second argument: the function to executed on the event;
+         *     third argument: this event will be executed in the bubbling phase (inner elements react first), 
+         *                     not in the capture phase (outer elements react first).
+         */
+        document.getElementById("btn1").addEventListener("click", displayDate, false);  
+
+        document.getElementById("btn2").onmouseover = () => { document.getElementById("btn2").innerHTML = "The time is?" };
+        document.getElementById("btn2").onmouseout  = () => { document.getElementById("btn2").innerHTML = "?" };
+        document.getElementById("btn2").onclick = displayDate; 
+    </script>
+
+
+
+</body>
+</html>

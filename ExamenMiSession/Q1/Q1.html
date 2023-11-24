@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Grouping Exercise</title>
+    <script>
+        function myTest(s) {
+            var open = ["(", "[", "{", "<", "|", '"', "'"];
+            var close = [")", "]", "}", ">", "|", '"', "'"];
+            var pile = new Array();
+            var i;
+            var stop = false;
+            for (i = 0; (!stop) && (i < s.length); i++) {
+                let temp_o = open.indexOf(s[i]);
+                let temp_c = close.indexOf(s[i]);
+                // Verification si le char est le meme pour ouvrir et fermer: "", '', |
+                if (temp_o != -1 && temp_c != -1) {
+                    if (pile.length != 0 && pile[pile.length - 1][0] == temp_o) {//[topo da pile] [caractere] == index Open
+                        pile.pop();
+                    }
+                    else {
+                        pile.push(new Array(temp_o, i));
+                    }
+                }
+                //Verification si le char est de overture: (,<, [, {
+                else if (temp_o != -1) {
+                    pile.push(new Array(temp_o, i))
+                }
+                //Verification si le char est de fermeture: ),>, ], }
+                else if (temp_c != -1) {
+                    if ((pile.length != 0) && (pile[pile.length - 1][0] == temp_c)) {
+                        pile.pop();
+                    }
+                    else {
+                        stop = true;
+                    }
+                }
+            }
+            var msg = "";
+            if ((!stop) && (pile.length == 0)) {
+                msg = "The string " + s + " is balanced" + "<br/>";
+            }
+            else if (pile.length != 0) {
+                msg = "The string " + s + " has an unclosed group at position " + pile[pile.length - 1][1] + "<br/>";
+            }
+            if (stop) {
+                msg += "The string " + s + " has incorrect closing at position " + (i - 1) + "<br/>";
+            }
+            document.getElementById("p1").innerHTML = msg;
+        }
+        function myGetValue() {
+            return document.getElementById("i1").value;
+        }
+    </script>
+</head>
+
+<body>
+    <input id="i1" type="text" />
+    <button type="button" onclick="myTest(myGetValue())">Test</button>
+    <p id="p1"></p>
+</body>
+
+</html>

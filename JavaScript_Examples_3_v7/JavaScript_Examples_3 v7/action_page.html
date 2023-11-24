@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Action Page</title>
+</head>
+<body>
+    <p>SUBMITTED</p>
+
+    <script>
+        var queryString = decodeURIComponent(window.location.search);       // ?fname=Mary&lname=Brown
+        queryString = queryString.substring(1);                             // fname=Mary&lname=Brown
+        var queries = queryString.split("&");                               // [fname=Mary, lname=Brown]
+        var str = "<br> First name: " + queries[0].split("=")[1] +          // Mary
+                  "<br> Last name: " + queries[1].split("=")[1] + "<br>";   // Brown
+        document.querySelector("p").innerHTML += str;
+    </script>
+
+</body>
+</html>

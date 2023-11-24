@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script>
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += x +"<br />";
+    }
+    </script>
+
+</head>
+<body>
+
+    <p id="id1"> </p>
+    <script>
+        var text = "Je vous dis bonjour. Montreal, bonjour Quebec. Bonjour Canada";
+        changeId1(text);
+        changeId1(text.replace(/bonjour/, "bonsoir"));
+        changeId1(text.replace(/bonjour/g, "bonsoir"));    // toutes les ocurrences
+        changeId1(text.replace(/bonjour/gi, "bonsoir"));   // i -> insensible à la case
+        changeId1(text.replace(/(b)onjour/gi, "$1onsoir"));
+
+        changeId1("");
+        text = "aaa bonjour bbb cccjour  jour   jourjjjjj   cccjourjjj  123jour";
+        changeId1(text);
+        changeId1(text.replace(/jour/, "soir"));       // la première string "jour".
+        changeId1(text.replace(/jour/g, "soir"));      // toutes les string "jour"
+        changeId1(text.replace(/\w+jour/g, "soir"));   // toutes les string d'au moins une lettre ou chiffre suivi de "jour"
+        changeId1(text.replace(/\w*jour/g, "soir"));   // toutes les string de zero ou plus lettre ou chiffre suivi de "jour"
+        changeId1(text.replace(/\w*jour\w*/g, "soir"));
+        changeId1(text.replace(/(\w*)jour(\w*)/g, "$2soir$1"));
+        changeId1(text.replace(/jour\b/g, "soir"));      // toutes les string "jour" suivi de fin de mot
+
+        changeId1("");
+        text = "aaa abbb ccaa abcd xbcy";
+        changeId1(text);
+        changeId1(text.replace(/bc/g, "soir"));
+        changeId1(text.replace(/[bc]/g, "soir"));
+        changeId1(text.replace(/[ ]/g, "-"));
+
+        changeId1("");
+        text = "abc abcé xyabc abcxy";
+        changeId1(text);
+        changeId1(text.replace(/abc\b/g, "123"));
+        changeId1(text.replace(/abc\w+/g, "123"));   // lettre ou chiffre n'inclut pas des lettres accentuées
+
+        changeId1("");
+        text = "We+are+in+++Montreal";
+        changeId1(text);
+        changeId1(text.replace(/\+/g, " "));   //  three spaces in front of Montreal. Show  one space in the browser
+        changeId1("length = " + text.replace(/\+/g, " ").length);
+        changeId1(text.replace(/\++/g, " "));  //  one space in front of Montreal
+        changeId1("length = " + text.replace(/\++/g, " ").length);
+        changeId1(text.replace(/\+(\+*)/g, " $1"));  // in each sequence of + , it replaces just the first + by space
+                                                     // So one space and two + in front of Montreal
+
+        changeId1(text.replace(/\+/g, " "));       // three spaces in front of Montreal. Show  one space in the browser
+        changeId1(text.replace(/\+/g, "&nbsp;"));  // three non-breakable spaces in front of Montreal
+                                                   // All the three non-breakable spaces will appear in the browser
+
+    </script>
+
+
+
+</body>
+</html>

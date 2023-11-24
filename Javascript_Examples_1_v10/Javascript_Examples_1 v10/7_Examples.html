@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Examples</title>
+</head>
+<body>
+    <p id="id1"></p>
+
+    <script>
+
+        let w = 'Tests: <br>';
+
+        w = w + "-----------------------<br>";
+
+        var x = false;
+        var y = true;
+        w = w + "x = " + x + "<br>"
+        w = w + "y = " + y + "<br>"
+        w = w + "x + 3 = " + (x + 3) + "<br>"
+        w = w + "y + 3 = " + (y + 3) + "<br>"
+        w = w + "y + y = " + (y + y) + "<br>"
+
+        w = w + "-----------------------<br>";
+        w = w + "x + '' = " + (x+'') + "<br>"
+        w = w + "y + '' = " + (y + '') + "<br>"
+        w = w + "'aaa' + x = " + ('aaa' + x) + "<br>"
+        w = w + "'aaa' + y = " + ('aaa' + y) + "<br>"
+
+        w = w + "-----------------------<br>";
+
+        if ([10, 12, 14] == false) { w = w + "[10, 12, 14] == false is true<br>"; }
+        else { w = w + "[10, 12, 14] == false is false<br>"; }
+
+        if ([10, 12, 14] == true) { w = w + "[10, 12, 14] == true is true<br>"; }
+        else { w = w + "[10, 12, 14] == true is false<br>"; }
+
+        if ([10, 12, 14]) { w = w + "[10, 12, 14] is treated as true<br>"; }
+        else { w = w + "[10, 12, 14] is treated as false<br>"; }
+
+        if ([]) { w = w + "[] is treated as true<br>"; }
+        else { w = w + "[] is treated as false<br>"; }
+
+        w = w + "-----------------------<br>";
+
+        w = w + "[10, 12, 14] + 1 = " + ([10, 12, 14] + 1) + "<br>";
+        w = w + "(![10, 12, 14]) + 1 = " + ((![10, 12, 14]) + 1) + "<br>";
+        w = w + "(![10, 12, 14]) + [10, 12, 14] = " + ((![10, 12, 14]) + [10, 12, 14]) + "<br>";
+
+        w = w + "-----------------------<br>";
+
+        var f = function (a) {
+            return a + 1;
+        }
+
+         w = w + "f = " + f + "<br>"
+
+        if (f == false) { w = w + "f == false is true<br>"; }
+        else { w = w + "f == false is false<br>"; }
+
+        if (f == true) { w = w + "f == true is true<br>"; }
+        else { w = w + "f == true is false<br>"; }
+
+        if (f) { w = w + "f is treated as true<br>"; }
+        else { w = w + "f is treated as false<br>"; }
+
+        w = w + "-----------------------<br>";
+
+        w = w + "f + true  = " + (f + true) + "<br>";
+        w = w + "f + false  = " + (f + false) + "<br>";
+
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Mathematics</h1>
+<p>Mathematics is fun.</p>
+</body>
+</html> 

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{61A13FCC-312B-4E93-A8ED-28A6DEFB0EF5}"
+	ProjectSection(SolutionItems) = preProject
+		1_FirstExample.html = 1_FirstExample.html
+		2_Exemples.html = 2_Exemples.html
+		3_Comparisons.html = 3_Comparisons.html
+		3a_Comparisons.html = 3a_Comparisons.html
+		3b_Comparisons.html = 3b_Comparisons.html
+		4_Examples.html = 4_Examples.html
+		5_Comparisons2.html = 5_Comparisons2.html
+		6_ForInForOf.html = 6_ForInForOf.html
+		7_Examples.html = 7_Examples.html
+		Hello4.js = Hello4.js
+		JSFunctions1.js = JSFunctions1.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76BC7E4B-2FFC-4BE8-B53D-47E0B226494B}
+	EndGlobalSection
+EndGlobal

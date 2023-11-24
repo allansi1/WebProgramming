@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Comparisons</title>
+</head>
+<body>
+
+    <p id="id1">Initial text</p>
+
+    <script>
+
+        let w = 'Tests: <br>';
+
+        if (NaN == NaN) { w = w + "NaN==NaN is true<br>"; }
+        else { w = w + "NaN==NaN is false<br>"; }
+
+        if (NaN === NaN) { w = w + "NaN===Nan is true<br>"; }
+        else { w = w + "NaN===NaN is false<br>"; }
+
+        w = w + "<br> false, 0 and '' (the empty string) <br> ";
+
+        if (false == 0) { w = w + "false==0 is true<br>"; }
+        else { w = w + "false==0 is false<br>"; }
+
+        if (false === 0) { w = w + "false===0 is true<br>"; }
+        else { w = w + "false===0 is false<br>"; }
+
+        if (false == '') { w = w + "false=='' is true<br>"; }
+        else { w = w + "false=='' is false<br>"; }
+
+        if (false === '') { w = w + "false==='' is true<br>"; }
+        else { w = w + "false==='' is false<br>"; }
+
+        if (0 == '') { w = w + "0=='' is true<br>"; }
+        else { w = w + "0=='' is false<br>"; }
+
+        if (0 === '') { w = w + "0==='' is true<br>"; }
+        else { w = w + "0==='' is false<br>"; }
+
+        if (0) { w = w + "0 is treated as true<br>"; }
+        else { w = w + "0 is treated as false<br>"; }
+
+        if ('') { w = w + "'' is treated as true<br>"; }
+        else { w = w + "'' is treated as false<br>"; }
+
+        w = w + "<br> true and number 1 <br>";
+
+        if (true == 1) { w = w + "true == 1 is true<br>"; }
+        else { w = w + "true == 1 is false<br>"; }
+
+        if (true === 1) { w = w + "true === 1 is true<br>"; }
+        else { w = w + "true === 1 is false<br>"; }
+
+        if (1) { w = w + "1 is treated as true<br>"; }
+        else { w = w + "1 is treated as false<br>"; }
+
+        w = w + "<br> true, false, number other than 0 and 1, and a non-empty string other than '0' and '1'<br>";
+
+        if (5 == true) { w = w + "5 == true is true<br>"; }
+        else { w = w + "5 == true is false<br>"; }
+
+        if (5 === true) { w = w + "5 === true is true<br>"; }
+        else { w = w + "5 === true is false<br>"; }
+
+        if (5 == false) { w = w + "5 == false is true<br>"; }
+        else { w = w + "5 == false is false<br>"; }
+
+        if (5 === false) { w = w + "5 === false is true<br>"; }
+        else { w = w + "5 === false is false<br>"; }
+
+        if ('aabb' == true) { w = w + "'aabb' == true is true<br>"; }
+        else { w = w + "'aabb' == true is false<br>"; }
+
+        if ('aabb' === true) { w = w + "'aabb' === true is true<br>"; }
+        else { w = w + "'aabb' === true is false<br>"; }
+
+        if ('aabb' == false) { w = w + "'aabb' == false is true<br>"; }
+        else { w = w + "'aabb' == false is false<br>"; }
+
+        if ('aabb' === false) { w = w + "'aabb' === false is true<br>"; }
+        else { w = w + "'aabb' === false is false<br>"; }
+
+        if (5) { w = w + "5 is treated as true<br>"; }
+        else { w = w + "5 is treated as false<br>"; }
+
+        if (!5) { w = w + "!5 is treated as true<br>"; }
+        else { w = w + "!5 is treated as false<br>"; }
+
+        if ('aabb') { w = w + "'aabb' is treated as true<br>"; }
+        else { w = w + "'aabb' is treated as false<br>"; }
+
+        if (!'aabb') { w = w + "!'aabb' is treated as true<br>"; }
+        else { w = w + "!'aabb' is treated as false<br>"; }
+
+         w = w + "<br>'0' compared to false, 0 and '' (the empty string) <br> ";
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        if ('0' === false) { w = w + "'0'===false is true<br>"; }
+        else { w = w + "'0'===false is false<br>"; }
+
+        if ('0' == 0) { w = w + "'0'==0 is true<br>"; }
+        else { w = w + "'0'==0 is false<br>"; }
+
+        if ('0' === 0) { w = w + "'0'===0 is true<br>"; }
+        else { w = w + "'0'===0 is false<br>"; }
+
+        if ('0' == '') { w = w + "'0'=='' is true<br>"; }
+        else { w = w + "'0'=='' is false<br>"; }
+
+        if ('0' === '') { w = w + "'0'==='' is true<br>"; }
+        else { w = w + "'0'==='' is false<br>"; }
+
+        if ('0') { w = w + "'0' is treated as true<br>"; }
+        else { w = w + "'0' is treated as false<br>"; }
+
+        if (!'0') { w = w + "!'0' is treated as true<br>"; }
+        else { w = w + "!'0' is treated as false<br>"; }
+
+        w = w + "<br>'1' compared to true and 1 <br> ";
+
+        if ('1' == true) { w = w + "'1'==true is true<br>"; }
+        else { w = w + "'1' == true is false<br>"; }
+
+        if ('1' === true) { w = w + "'1' === true is true<br>"; }
+        else { w = w + "'1' === true is false<br>"; }
+
+        if ('1' == 1) { w = w + "'1' == 1 is true<br>"; }
+        else { w = w + "'1' == 1 is false<br>"; }
+
+        if ('1' === 1) { w = w + "'1' === 1 is true<br>"; }
+        else { w = w + "'1' === 1 is false<br>"; }
+
+        if ('1') { w = w + "'1' is treated as true<br>"; }
+        else { w = w + "'1' is treated as false<br>"; }
+
+        if (!'1') { w = w + "!'1' is treated as true<br>"; }
+        else { w = w + "!'1' is treated as false<br>"; }
+
+        w = w + "<br> undefined and null <br>";
+
+        if (undefined == null) { w = w + "undefined == null is true<br>"; }
+        else { w = w + "undefined == null is false<br>"; }
+
+        if (undefined === null) { w = w + "undefined === null is true<br>"; }
+        else { w = w + "undefined === null is false<br>"; }
+
+        if (0 == null) { w = w + "0 == null is true<br>"; }
+        else { w = w + "0 == null is false<br>"; }
+
+        if (0 === null) { w = w + "0 === null is true<br>"; }
+        else { w = w + "0 === null is false<br>"; }
+
+        if ('' == null) { w = w + "'' == null is true<br>"; }
+        else { w = w + "'' == null is false<br>"; }
+
+        if ('' === null) { w = w + "'' === null is true<br>"; }
+        else { w = w + "'' === null is false<br>"; }
+
+        if (NaN == null) { w = w + "NaN == null is true<br>"; }
+        else { w = w + "NaN == null is false<br>"; }
+
+        if (NaN === null) { w = w + "NaN === null is true<br>"; }
+        else { w = w + "NaN === null is false<br>"; }
+
+        if (0 == undefined) { w = w + "0 == undefined is true<br>"; }
+        else { w = w + "0 == undefined is false<br>"; }
+
+        if (0 === undefined) { w = w + "0 === undefined is true<br>"; }
+        else { w = w + "0 === undefined is false<br>"; }
+
+        if ('' == undefined) { w = w + "'' == undefined is true<br>"; }
+        else { w = w + "'' == undefined is false<br>"; }
+
+        if ('' === undefined) { w = w + "'' === undefined is true<br>"; }
+        else { w = w + "'' === undefined is false<br>"; }
+
+        if (NaN == undefined) { w = w + "NaN == undefined is true<br>"; }
+        else { w = w + "NaN == undefined is false<br>"; }
+
+        if (NaN === undefined) { w = w + "NaN === undefined is true<br>"; }
+        else { w = w + "NaN === undefined is false<br>"; }
+
+        w = w + "The type of null is " + (typeof null) + "<br>";
+        w = w + "The type of undefined is " + (typeof undefined) + "<br>";
+
+        w = w + "<br> null, false and true <br>";
+
+        if (null == false) { w = w + "null == false is true<br>"; }
+        else { w = w + "null == false is false<br>"; }
+
+        if (null === false) { w = w + "null === false is true<br>"; }
+        else { w = w + "null === false is false<br>"; }
+
+        if (null == true) { w = w + "null == true is true<br>"; }
+        else { w = w + "null == true is false<br>"; }
+
+        if (null === true) { w = w + "null === true is true<br>"; }
+        else { w = w + "null === true is false<br>"; }
+
+        if (null) { w = w + "null is treated as true<br>"; }
+        else { w = w + "null is treated as false<br>"; }
+
+        if (!(null)) { w = w + "!(null) is treated as true<br>"; }
+        else { w = w + "!(null) is treated as false<br>"; }
+
+        w = w + "<br> undefined, false and true <br>";
+
+        if (undefined == false) { w = w + "undefined == false is true<br>"; }
+        else { w = w + "undefined == false is false<br>"; }
+
+        if (undefined === false) { w = w + "undefined === false is true<br>"; }
+        else { w = w + "undefined === false is false<br>"; }
+
+        if (undefined == true) { w = w + "undefined == true is true<br>"; }
+        else { w = w + "undefined == true is false<br>"; }
+
+        if (undefined === true) { w = w + "undefined === true is true<br>"; }
+        else { w = w + "undefined === true is false<br>"; }
+
+        if (undefined) { w = w + "undefined is treated as true<br>"; }
+        else { w = w + "undefined is treated as false<br>"; }
+
+        if (!(undefined)) { w = w + "!(undefined) is treated as true<br>"; }
+        else { w = w + "!(undefined) is treated as false<br>"; }
+
+        w = w + "<br> NaN, false and true <br> ";
+
+        if (NaN == false) { w = w + "NaN == false is true<br>"; }
+        else { w = w + "NaN == false is false<br>"; }
+
+        if (NaN === false) { w = w + "NaN === false is true<br>"; }
+        else { w = w + "NaN === false is false<br>"; }
+
+        if (NaN == true) { w = w + "NaN == true is true<br>"; }
+        else { w = w + "NaN == true is false<br>"; }
+
+        if (NaN === true) { w = w + "NaN === true is true<br>"; }
+        else { w = w + "NaN === true is false<br>"; }
+
+        if (NaN) { w = w + "NaN is treated as true<br>"; }
+        else { w = w + "NaN is treated as false<br>"; }
+
+        if (!NaN) { w = w + "!NaN is treated as true<br>"; }
+        else { w = w + "!NaN is treated as false<br>"; }
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+
+</body>
+</html>

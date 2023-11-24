@@ -1,0 +1,12 @@
+John
+John@gmail.com
+-----------
+Mary
+mary@yahoo
+-----------
+Anne
+anne@yahoo
+-----------
+test
+test@gmail
+-----------

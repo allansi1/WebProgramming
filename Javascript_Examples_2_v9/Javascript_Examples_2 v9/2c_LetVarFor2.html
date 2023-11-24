@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS var and let</title>
+</head>
+<body>
+    <p id="id1"></p>
+
+    <script>
+        document.getElementById('id1').innerHTML += "Using var in a for loop <br/>";
+        for (var i = 0; i < 3; i++) {
+                                    // i is declared with "var" inside a block (the for block)
+                                    // so i would be LOCAL only to the function, but since 
+                                    // it is not inside a function, i is GLOBAL 
+        }
+        document.getElementById('id1').innerHTML += "After the for loop: i = "+ i +" <br/>";
+
+        document.getElementById('id1').innerHTML += "<br/> Using let in a for loop <br/>";
+        for (let j = 0; j < 3; j++) {
+                                    // j is declared with "let" inside a block (the for block)
+                                    // so j is LOCAL to that block
+        }
+        try {
+        document.getElementById('id1').innerHTML += "After the for loop: j = "+ j +" <br/>";
+        }
+        catch(x){
+        document.getElementById('id1').innerHTML += "After the for loop: j is not accessible <br/>";
+        }
+    </script>
+</body>
+</html>

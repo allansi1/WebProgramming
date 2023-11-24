@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1927
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6B6C430-4530-4598-9A72-FD296CC285CF}"
+	ProjectSection(SolutionItems) = preProject
+		Cloture.html = Cloture.html
+		GCD.html = GCD.html
+		ModuleMath.html = ModuleMath.html
+		ParseDate.html = ParseDate.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A29DF75-7858-4DAF-B54C-093DED172622}
+	EndGlobalSection
+EndGlobal

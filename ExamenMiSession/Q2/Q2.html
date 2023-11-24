@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function ContinuedFraction() {
+            var temp = document.getElementById("i1").value.split("/");
+            var s1 = temp[0];
+            var s2 = temp[1];
+            var r = new Array();
+            
+                if (myTest(s1, s2)) {
+                    var dividend = parseInt(s1);
+                    var divisor = parseInt(s2);
+                    var quotient, rest;
+                    while (divisor !== 0) {
+
+                        //Dividende: 2; Diviseur: 5 ; Quotient: 0; Reste: 2
+                        //Dividende: 5 (le diviseur antérieur); Diviseur: 2 (le reste antérieur); Quotient: 2; Reste: 1
+                        //Dividende: 2 (le diviseur antérieur); Diviseur: 1 (le reste antérieur); Quotient: 2; Reste: 0
+                        quotient = Math.floor(dividend / divisor);
+                        rest = dividend % divisor;
+                        dividend = divisor;
+                        divisor = rest;
+                        //Mettre la valeur du quotient au tableau pour afficher les coefficients
+                        r.push(quotient);
+                    }
+                }
+                document.getElementById("i2").value = "[" + r.join(", ") + "]";
+            
+        }
+        function myTest(s1, s2) {
+            if (isNaN(s1) || s1 < 0 || s1 != parseInt(s1)) {
+                myMsg("Premier argument invalide");
+                return false;
+            }
+            else if (isNaN(s2) || s2 < 0 || s2 != parseInt(s2)) {
+                myMsg("Deuxieme argument invalide");
+                return false;
+            }
+            else {
+                myMsg("OK");
+                return true;
+            }
+        }
+        function myMsg(msg) {
+            document.getElementById("p1").innerHTML = msg;
+        }
+    </script>
+</head>
+
+<body>
+    <input id="i1" type="text" /> <br />
+    <input id="i2" type="text" readonly /> <br /> <br />
+    <button type="button" onclick="ContinuedFraction()">Continued Fraction</button>
+    <p id="p1"></p>
+</body>
+
+</html>

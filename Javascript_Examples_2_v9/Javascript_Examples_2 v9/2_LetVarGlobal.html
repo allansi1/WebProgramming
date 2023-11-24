@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>let, var and global</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+        /* When  declaring the variable outside any function or block,
+         * it is a global variable, no matter we declare it using 
+         * var, let or nothing
+         */
+        a = 1;
+        var b = 2;
+        let c = 3;
+
+        function myF1() {
+            {
+                /* 
+                 * Variables declared without var or let are global.
+                 * Although declared in an inner block {} in myF1(),  
+                 * t is accessible in the page scope, even directly from other script
+                 * (but only after executing myF1() for the first time).
+                 */
+                t = 4;
+            }
+            {
+                /* 
+                 * var --> accessible in the function scope where it is declared.
+                 * Although declared in an inner block {}, x is accessible in the function scope of myF1()
+                 */
+                var x = 5;    
+            } 
+            {
+                /* 
+                 * let -->  accessible in the block scope where it is declared.
+                 * y is declared in an inner block {}, and y is accessible only in such inner block
+                 */
+                let y = 10;
+
+                document.getElementById("id1").innerHTML += " From the block in myF1(), t= " + t + " <br>";
+                document.getElementById("id1").innerHTML += " From the block in myF1(), x= " + x + " <br>";
+                document.getElementById("id1").innerHTML += " From the block in myF1(), y= " + y + " <br>";
+            }
+
+            document.getElementById("id1").innerHTML += "<br> From myF1(), outside the block, t= " + t + " <br>";
+            document.getElementById("id1").innerHTML += " From myF1(), outside the block, x= " + x + " <br>";
+            /* The next line would produce an error. */
+            //document.getElementById("id1").innerHTML += " From myF1(), outside the block, y= " + y + " <br>";
+            try {
+                document.getElementById("id1").innerHTML += " From myF1(), outside the block, y= " + y + " <br>";
+            }
+            catch (e) {
+                document.getElementById("id1").innerHTML += " From myF1(), outside the block, y is not accessible <br>";
+            }
+        }
+
+        myF1();
+
+        document.getElementById("id1").innerHTML += "<br> From outside myF1(), t= " + t + " <br>";
+        /* The next line would produced an error. */
+        //document.getElementById("id1").innerHTML += " From outside myF1(), x= " + x + " <br>";
+        try {
+            document.getElementById("id1").innerHTML += " From outside myF1(), x= " + x + " <br>";
+        }
+        catch (e) {
+            document.getElementById("id1").innerHTML += " From outside myF1(), x is not accessible <br>";
+        }
+        /* The next line would produce an error. */
+        //document.getElementById("id1").innerHTML += " From outside myF1(), y= " + y + " <br>";
+        try {
+            document.getElementById("id1").innerHTML += " From outside myF1(), y= " + y + " <br>";
+        }
+        catch (e) {
+            document.getElementById("id1").innerHTML += " From outside myF1(), y is not accessible <br>";
+        }           
+    </script>
+    <script>
+        document.getElementById("id1").innerHTML += "<br> From outside myF1(), from another script, t= " + t + " <br>";
+
+        document.getElementById("id1").innerHTML += "<br> All global variables are accessible even from another script <br>";
+        document.getElementById("id1").innerHTML += " a= " + a + " <br>";
+        document.getElementById("id1").innerHTML += " b= " + b + " <br>";
+        document.getElementById("id1").innerHTML += " c= " + c + " <br>";
+    </script>
+   
+</body>
+</html>

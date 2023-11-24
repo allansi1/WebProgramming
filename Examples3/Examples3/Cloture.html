@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Closure</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+
+        function prefix(p) {
+            return (s,r) => {return p+'-'+s+'-'+r;}    // lambda function
+        }
+
+        var prefixNon = prefix("non");
+
+        var prefixPro = prefix("pro");
+
+        document.getElementById("id1").innerHTML += " prefixNon('culpable','aa') = " + prefixNon('culpable','aa' ) + " <br>";
+
+        document.getElementById("id1").innerHTML += " prefixPro('actif', 'bb') = " + prefixPro('actif', 'bb') + " <br>";
+
+    </script>
+</body>
+</html>

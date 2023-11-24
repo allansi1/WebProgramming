@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p id="id1"></p>
+    <p id="id2"></p>
+    <p id="id3"></p>
+    <p id="id4"></p>
+    <p id="id5"></p>
+    <p id="id6"></p>
+    <p id="id7"></p>
+    <p id="id8"></p>
+    <p id="id9"></p>
+
+    <script>
+        var a = new Array();
+        a[3] = 'bonjour';
+        document.getElementById("id1").innerHTML = "[ " + a.toString() + " ]";
+
+        var b = new Array();
+        b[3] = 100;
+        document.getElementById("id2").innerHTML = "[ " + b.toString() + " ]";
+
+        var c1 = ["AA", "BB", "CC"];
+        var c2 = ["DD", "EE"];
+        var c3 = ["FF", "GG"];
+        var c4 = c1.concat(c2, c3);
+        document.getElementById("id3").innerHTML = "[ " + c4.toString() + " ]";
+        document.getElementById("id4").innerHTML = "[ " + c4.join("<>") + " ]";
+        document.getElementById("id5").innerHTML = "type of an array is " + typeof c4;
+
+        var d = 5;
+        document.getElementById("id6").innerHTML = "d = " + d + "<br>";
+        document.getElementById("id6").innerHTML += "typeof d = " + (typeof d) + "<br>";
+        document.getElementById("id6").innerHTML += "Array.isArray(d) = " + Array.isArray(d) + "<br>";
+        document.getElementById("id6").innerHTML += "d instanceof Array = " + (d instanceof Array) + "<br>";
+        document.getElementById("id6").innerHTML += "typeof d === 'object' = " + (typeof d === 'object') + "<br>";
+        document.getElementById("id6").innerHTML += "d instanceof Object = " + (d instanceof Object) + "<br>";
+        //document.getElementById("id6").innerHTML += "({}).toString.call(d) = " + ({}).toString.call(d) + "<br>";
+        d.valueOf = () => { return 8 };  // d n'est pas un objet. Cette ligne est ignorée sans msg d'erreur
+        document.getElementById("id6").innerHTML += "d = " + d + "<br>";
+
+        var e = [5, 10];
+        document.getElementById("id7").innerHTML = "e = [" + e + "]<br>";
+        document.getElementById("id7").innerHTML += "typeof e = " + (typeof e) + "<br>";
+        document.getElementById("id7").innerHTML += "Array.isArray(e) = " + Array.isArray(e) + "<br>";
+        document.getElementById("id7").innerHTML += "e instanceof Array = " + (e instanceof Array) + "<br>";
+        document.getElementById("id7").innerHTML += "typeof e === 'object' = " + (typeof e === 'object') + "<br>";
+        document.getElementById("id7").innerHTML += "e instanceof Object = " + (e instanceof Object) + "<br>";
+        //document.getElementById("id7").innerHTML += "({}).toString.call(e) = " + ({}).toString.call(e) + "<br>";
+
+        document.getElementById("id7").innerHTML += "ATTENTION: Changing the valueOf() method of e: <br>";
+        e.valueOf = () => { return 8 };  // e est un objet.
+        document.getElementById("id7").innerHTML += "  e = " + e + "<br>";  // e.valueOf().toString()
+        // to calculate e+1, it calls e.valueOf(), it is a number, 8. it adds 8+1, and get 9.
+        document.getElementById("id7").innerHTML += "  e + 1 = " + (e + 1) + "<br>";
+        document.getElementById("id7").innerHTML += "Array.isArray(e) = " + Array.isArray(e) + "<br>";
+        document.getElementById("id7").innerHTML += "e instanceof Array = " + (e instanceof Array) + "<br>";
+        document.getElementById("id7").innerHTML += "  e.toString() = " + e.toString() + "<br>";
+        document.getElementById("id7").innerHTML += "  e[0] = " + e[0] + "<br>";
+        document.getElementById("id7").innerHTML += "  e[1] = " + e[1] + "<br>";
+
+        var f = [5, 10];
+        document.getElementById("id8").innerHTML = "f = [" + f + "] <br>";
+        document.getElementById("id8").innerHTML += "typeof f = " + (typeof f) + "<br>";
+        document.getElementById("id8").innerHTML += "Array.isArray(f) = " + Array.isArray(f) + "<br>";
+        document.getElementById("id8").innerHTML += "f instanceof Array = " + (f instanceof Array) + "<br>";
+        document.getElementById("id8").innerHTML += "ATTENTION: Making f = f + 1 <br>";
+        // to calculate f = f+1, it calls f.valueOf(), it is an array. Then it calls .toString() and
+        // do the concatenation. So f becomes the string "5,101".
+        f = f + 1;
+        document.getElementById("id8").innerHTML += "f = " + f + "<br>";
+        document.getElementById("id8").innerHTML += "typeof f = " + (typeof f) + "<br>";
+        document.getElementById("id8").innerHTML += "Array.isArray(f) = " + Array.isArray(f) + "<br>";
+        document.getElementById("id8").innerHTML += "f instanceof Array = " + (f instanceof Array) + "<br>";
+
+        var g = [5, "Today", [10, "Tomorrow"], function (x, y) { return x + y }];
+        document.getElementById("id9").innerHTML = "g = [" + g + "]<br>";
+        g.sort();
+        document.getElementById("id9").innerHTML += "g = [" + g + "]<br>";
+
+    </script>
+
+</body>
+</html>

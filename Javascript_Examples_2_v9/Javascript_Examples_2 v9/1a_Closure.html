@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>Closure</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+        var factor = 10;
+
+        function multiplier(factor) {
+            return number => number * factor;    // lambda function
+            // return (number) => { return number * factor; } ;  // another way of writing a lambda function
+            // return function (number) { return number * factor; }  // an anonymous function
+        }
+
+        var twice = multiplier(2);
+
+        var threeTimes = multiplier(3);
+
+        var fourTimes = multiplier(4);
+
+        var myFunction = number => number * factor;
+
+        document.getElementById("id1").innerHTML += " factor = " + factor + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(5) = " + twice(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(7) = " + twice(7) + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice = " + twice + " <br>";
+
+        document.getElementById("id1").innerHTML += " threeTimes(50) = " + threeTimes(50) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fourTimes(100) = " + fourTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " myFunction(5) = " + myFunction(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += "<br/> If the global variable factor is changed: <br/>"
+
+        factor=100;
+
+        document.getElementById("id1").innerHTML += " factor = " + factor + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(5) = " + twice(5) + " <br>";
+
+        document.getElementById("id1").innerHTML += " twice(7) = " + twice(7) + " <br>";
+
+        document.getElementById("id1").innerHTML += " threeTimes(50) = " + threeTimes(50) + " <br>";
+
+        document.getElementById("id1").innerHTML += " fourTimes(100) = " + fourTimes(100) + " <br>";
+
+        document.getElementById("id1").innerHTML += " myFunction(5) = " + myFunction(5) + " <br>";
+    </script>
+</body>
+</html>

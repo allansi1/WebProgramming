@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS var and let</title>
+    <script>
+        /*
+         * a, b, c and f (after f1() first execution) are GLOBAL to the PAGE,
+         * not only global to the script where they were declared.
+         */
+        var a = 1;
+        let b = 2;
+        c = 3;
+        function f1() {
+            var d = 4;      // d is LOCAL to the function
+            let e = 5;      // e is LOCAL to the block (in this case the block is the function)
+            f = 6;          // f will be GLOBAL as a, b, c  but only after the first execution of f1
+            reset();
+            document.getElementById("id1").innerHTML +=  a + "<br>";
+            document.getElementById("id2").innerHTML +=  b + "<br>";
+            document.getElementById("id3").innerHTML +=  c + "<br>";
+            document.getElementById("id4").innerHTML +=  d + "<br>";
+            document.getElementById("id5").innerHTML +=  e + "<br>";
+            document.getElementById("id6").innerHTML +=  f + "<br>";
+        }
+        function f2() {
+            reset();
+            document.getElementById("id1").innerHTML +=  a + "<br>";
+            document.getElementById("id2").innerHTML +=  b + "<br>";
+            document.getElementById("id3").innerHTML +=  c + "<br>";
+            try {
+                document.getElementById("id4").innerHTML += d + "<br>";  //ReferenceError: d is not defined
+            }
+            catch (x) {
+                document.getElementById("id4").innerHTML += "Reference Error <br>"
+            }
+            try {
+                document.getElementById("id5").innerHTML += e + "<br>";  //ReferenceError: e is not defined
+            }
+            catch (x) {
+                document.getElementById("id5").innerHTML += "Reference Error <br>"
+            }
+            try {
+                document.getElementById("id6").innerHTML += f + "<br>";    // OK, after first execution of f1()
+            }
+            catch (x) {
+                document.getElementById("id6").innerHTML += "Reference Error <br>"
+            }
+        }
+        function f3() {
+            {
+                var d = 40;        // d is LOCAL to the function -- function scope
+                let e = 50;        // e is LOCAL to the block -- block scope
+            }
+            reset();
+            document.getElementById("id1").innerHTML += a + "<br>";
+            document.getElementById("id2").innerHTML += b + "<br>";
+            document.getElementById("id3").innerHTML += c + "<br>";
+            document.getElementById("id4").innerHTML += d + "<br>";
+            try {
+                document.getElementById("id5").innerHTML += e + "<br>";  //ReferenceError: e is not defined
+            }
+            catch (x) {
+                document.getElementById("id5").innerHTML += "Reference Error <br>"
+            }
+            try {
+                document.getElementById("id6").innerHTML += f + "<br>";    // OK, after first execution of f1()
+            }
+            catch (x) {
+                document.getElementById("id6").innerHTML += "Reference Error <br>"
+            }
+        }
+
+        function reset() {
+            document.getElementById("id1").innerHTML = "Result : a = ";
+            document.getElementById("id2").innerHTML = "Result : b = ";
+            document.getElementById("id3").innerHTML = "Result : c = ";
+            document.getElementById("id4").innerHTML = "Result : d = ";
+            document.getElementById("id5").innerHTML = "Result : e = ";
+            document.getElementById("id6").innerHTML = "Result : f = ";
+        }
+    </script>
+    <script>
+        function f4() {
+            /*
+             * a, b, c and f (after f1() first execution) are GLOBAL to the PAGE,
+             * not only global to the script where they were declared.
+             */
+            reset();
+            document.getElementById("id1").innerHTML += a + "<br>";
+            document.getElementById("id2").innerHTML += b + "<br>";
+            document.getElementById("id3").innerHTML += c + "<br>";
+            try {
+                document.getElementById("id4").innerHTML += d + "<br>";  //ReferenceError: d is not defined
+            }
+            catch (e) {
+                document.getElementById("id4").innerHTML += "Reference Error <br>"
+            }
+            try {
+                document.getElementById("id5").innerHTML += e + "<br>";  //ReferenceError: e is not defined
+            }
+            catch (e) {
+                document.getElementById("id5").innerHTML += "Reference Error <br>"
+            }
+            try {
+                document.getElementById("id6").innerHTML += f + "<br>";    // OK, after first execution of f1()
+            }
+            catch (e) {
+                document.getElementById("id6").innerHTML += "Reference Error <br>"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <p id="id1"></p>
+    <p id="id2"></p>
+    <p id="id3"></p>
+    <p id="id4"></p>
+    <p id="id5"></p>
+    <p id="id6"></p>
+
+    <input type="button"
+           onclick="f1()"
+           value="f1()" /> <br />
+    <input type="button"
+           onclick="f2()"
+           value="f2()" /> <br />
+    <input type="button"
+           onclick="f3()"
+           value="f3()" /> <br />
+    <input type="button"
+           onclick="f4()"
+           value="f4()" /> <br />
+
+    <script>reset()</script>
+
+</body>
+</html>

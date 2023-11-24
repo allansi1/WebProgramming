@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html >
+<head>
+    <meta charset="utf-8" />
+    <title>Grouping Exercise</title>
+    <script>
+
+        function myAdd(s1,s2) {
+           if (myTest(s1,s2)) {
+             document.getElementById("i3").value= (Number(s1)+Number(s2))%12;
+           }
+        }
+
+         function mySubtract(s1,s2) {
+           if (myTest(s1,s2)) {
+             //var x = (Number(s1)-Number(s2))%12;
+             //document.getElementById("i3").value = x>=0?x:(x+12);
+             document.getElementById("i3").value = (((Number(s1)-Number(s2))%12) +12)%12;
+           }
+        }
+
+        function myTest(s1,s2){
+          if (isNaN(s1) || s1 < 0 || s1 > 11 || s1!=parseInt(s1)){
+            myMsg("Premier argument invalide");
+            return false;
+          }
+          else if (isNaN(s2) || s2 < 0 || s2 > 11 || s2!=parseInt(s2)){
+            myMsg("Deuxieme argument invalide");
+            return false;
+          }
+          else {
+            myMsg("OK");
+            return true;
+          }
+        }
+        function myGetValue1() {
+            return document.getElementById("i1").value;
+        }
+        function myGetValue2() {
+            return document.getElementById("i2").value;
+        }
+        function myMsg(msg){
+            document.getElementById("p1").innerHTML = msg;
+        }
+    </script>
+</head>
+<body>
+    <h2>Module 12</h2>
+    Argument 1: <input id="i1" type="text" /> <br />
+    Argument 2: <input id="i2" type="text" /> <br />
+    Resultat: <input id="i3" type="text" readonly/> <br /> <br />
+    <button type="button" onclick="myAdd(myGetValue1(),myGetValue2())">Add</button>
+    <button type="button" onclick="mySubtract(myGetValue1(),myGetValue2())">Subtract</button>
+    <button type="button" onclick="myTest(myGetValue1(),myGetValue2())">Test</button>
+    <p id="p1"></p>
+</body>
+</html>

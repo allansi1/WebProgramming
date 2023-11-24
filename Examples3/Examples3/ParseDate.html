@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Parse Date</title>
+    <script>
+        function myParse(){
+           var d =document.getElementById("i1").value;
+           var result = d.match(/^(\d{1,2})[ ]+([A-Z]?[a-z]+)[ ]+(\d{4})$/);
+           //var result = /^(\d{1,2})[ ]+([A-Z]?[a-z]+)[ ]+(\d{4})$/.exec(d);
+           if (result!=null) {
+             document.getElementById("i2").value = result[1];
+             document.getElementById("i3").value = result[2];
+             document.getElementById("i4").value = result[3];
+             document.getElementById("p1").innerHTML = "OK";
+           }
+           else{
+             document.getElementById("i2").value = "";
+             document.getElementById("i3").value = "";
+             document.getElementById("i4").value = "";
+             document.getElementById("p1").innerHTML = "date invalid";
+           }
+        }
+
+       function myParse2(){
+           var d =document.getElementById("i1").value;
+           var re= /^(\d{1,2})[ ]+([A-Z]?[a-z]+)[ ]+(\d{4})$/;
+           if (re.test(d)){
+             document.getElementById("i2").value = d.replace(re,"$1");
+             document.getElementById("i3").value = d.replace(re,"$2");
+             document.getElementById("i4").value = d.replace(re,"$3");
+             document.getElementById("p1").innerHTML = "OK";
+           }
+           else{
+             document.getElementById("i2").value = "";
+             document.getElementById("i3").value = "";
+             document.getElementById("i4").value = "";
+             document.getElementById("p1").innerHTML = "date invalid";
+           }
+        }
+
+    </script>
+</head>
+<body>
+    <h2>Date</h2>
+    Date: <input id="i1" type="text" /> <br />  <br />
+    <button type="button" onclick="myParse()">Parse</button>
+    <button type="button" onclick="myParse2()">Parse2</button>
+    <br />  <br />
+    Jour: <input id="i2" type="text" readonly /> <br />
+    Mois: <input id="i3" type="text" readonly /> <br />
+    Année: <input id="i4" type="text" readonly /> <br />
+    <br />
+    <p id="p1"></p>
+</body>
+</html>

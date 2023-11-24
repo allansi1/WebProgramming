@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Functions</title>
+    <script>
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += " " + x;
+        }
+        function fchangeId1(x) {
+            document.getElementById("id1").innerHTML += " " + x(4,5);
+        }
+        function Add1(x, y) {
+            return x + y;
+        }
+        var Add2 = Add1;
+        var Add3 = function (x, y) {
+            return x + y;
+        }
+        var Add4 = (x, y) => {
+            return x + y;
+        }
+        var Add5 = (x = 0, y = 0) => {
+            return x + y;
+        }
+         var Add5b = (x = 0, y) => {
+            if (y==undefined) {
+               if (typeof x == 'number'){ y=0; }
+               else { y=''; }
+            }
+            return x + y;
+        }
+        function Add6(x, y) {
+            function aux(a, b) {
+                a = a + b;
+            }
+            aux(x, y);  // numbers, strings and boolean passed by VALUE
+            return x;   // actually strings are passed by value of pointer, but the string assignment 
+                        // replaces the string (it does not change the string).
+        }
+        function myF1(x) {
+            var myArr = ['AA', 'BB', 'CC'];
+            function aux(a, b) {
+                a[2] = b;
+            }
+            aux(myArr, x); // Objects (including arrays) passed by "REFERENCE" (by value of pointer)
+            return myArr;
+        }
+        function myF2(x,y) {
+            function aux(a, b) {
+                a = a.concat(b); //passed by "REFERENCE" (by value of pointer),
+                                 //but concat() creates a new array
+            }
+            aux(x,y);
+            return x;
+        }
+        function myF3(x, y) {
+            function aux(a, b) {
+                a = a.push(b); //passed by "REFERENCE" (by value of pointer),
+                               //push() change the array
+            }
+            aux(x, y);
+            return x;
+        }
+        function Add7(x, y) {
+            var arr = [5, "John", function (a, b) { return a + b }];
+            return arr[2](x, y);
+        }
+        function sumAll() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+    </script>
+</head>
+<body>
+    <p id="id1">Result : </p>
+    <input type="button"
+           onclick="document.getElementById('id1').innerHTML+=' '+Add1(3,5)"
+           value="Add1 version 0" /> <br />
+    <input type="button" onclick="changeId1(Add1(3,5))" value="Add1" /> <br />
+    <input type="button" onclick="changeId1(Add2(3,5))" value="Add2" /> <br />
+    <input type="button" onclick="changeId1(Add3(3,5))" value="Add3" /> <br />
+    <input type="button" onclick="changeId1(Add4(3,5))" value="Add4" /> <br />
+    <input type="button"
+           onclick="document.getElementById('id1').innerHTML+=' '+((x, y) => { return x + y; })(3,5)"
+           value="Add lambda - direct" /> <br />
+    <input type="button"
+           onclick="changeId1(((x, y) => { return x + y; })(3,5))"
+           value="Add lambda" /> <br />
+    <input type="button" onclick="fchangeId1(Add1)" value="f Add1" /> <br />
+    <input type="button"
+           onclick="fchangeId1((x, y) => { return x + y; })"
+           value="f lambda" /> <br />
+    <input type="button" onclick="changeId1(Add1(3))" value="Add1 single arg" /> <br />
+    <input type="button" onclick="changeId1(Add1(3,5,7))" value="Add1 3 args" /> <br />
+    <input type="button" onclick="changeId1(Add5(3))" value="Add5 single arg" /> <br />
+    <input type="button" onclick="changeId1(Add5('Bonjour'))" value="Add5 single arg string" /> <br />
+    <input type="button" onclick="changeId1(Add5b(3))" value="Add5b single arg number" /> <br />
+    <input type="button" onclick="changeId1(Add5b('Bonjour'))" value="Add5b single arg string" /> <br />
+    <input type="button" onclick="changeId1(Add6(3,5))" value="Add6" /> <br />
+    <input type="button" onclick="changeId1(Add6('To','day'))" value="Add6 string" /> <br />
+
+    <input type="button" onclick="changeId1(myF1('DD'))" value="myF1" /> <br />
+    <input type="button" onclick="changeId1(myF2(['AA', 'BB', 'CC'],['DD']))" value="myF2" /> <br />
+    <input type="button" onclick="changeId1(myF3(['AA', 'BB', 'CC'],'DD'))" value="myF3" /> <br />
+
+    <input type="button" onclick="changeId1(Add7(3,5))" value="Add7" /> <br />
+    <input type="button" onclick="changeId1(Add7('To','day'))" value="Add7 string" /> <br />
+
+    <input type="button"
+           onclick="changeId1(sumAll(1, 123, 500, 115, 44, 88))"
+           value="sumAll(1, 123, 500, 115, 44, 88)" /> <br />
+
+</body>
+</html>

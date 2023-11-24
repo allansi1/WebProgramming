@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <form id="frm1" action="action_page.html">
+        First name: <input type="text" name="fname" placeholder="first name"><br>
+        Last name: <input type="text" name="lname" placeholder="last name"><br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <p>Click "Try it" to display the value of the form's action attribute:</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = "<b>action:</b> " + document.getElementById("frm1").action;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+
+</body>
+</html>

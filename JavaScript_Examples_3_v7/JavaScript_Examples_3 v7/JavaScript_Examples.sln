@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D7A3E2ED-8FF1-4A65-BC2B-47F54CA16857}"
+	ProjectSection(SolutionItems) = preProject
+		1_DisableInputButton.html = 1_DisableInputButton.html
+		2_FormSubmition.html = 2_FormSubmition.html
+		3_FormActionAttrib.html = 3_FormActionAttrib.html
+		4_FormValidate1.html = 4_FormValidate1.html
+		5_FormValidate2.html = 5_FormValidate2.html
+		6_DisplayDate1.html = 6_DisplayDate1.html
+		6a_CaptureBubbling.html = 6a_CaptureBubbling.html
+		6b_CaptureBubbling.html = 6b_CaptureBubbling.html
+		7_DisplayDate2.html = 7_DisplayDate2.html
+		action_page.html = action_page.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB7339F7-D7D8-48A3-B5B4-F89C415DE4FE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Regular Expression</title>
+
+    <script>
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += "&nbsp;&nbsp;" + x + '<br />';
+        }
+    </script>
+
+</head>
+<body>
+    <p id="id1"> </p>
+    <script>
+
+        //==========================================================================
+        //
+        // Écrire une exp. reg.  pour valide des "numéros" d'étudiants .
+        //  Formats valides sont:
+        //     LSx99999   le x peut être I, A, H ou M 
+        //
+        //==========================================================================
+
+        var regex = /^LS[IAHM]\d{5}$/;
+        //autre solution: var regex = /^LS(I|A|H|M)\d{5}$/
+
+        //changeId1(regex.source);
+
+        var t;
+
+        t = "LSI23498";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "LSA23498";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "LSJ23476";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "LSI123456";
+        changeId1(t + " : " + (regex.test(t)));
+
+
+        // Pour le code postal 
+
+        var regex = /^[A-Z]\d[A-Z][ ]?\d[A-Z]\d$/i;
+
+        t = "H3R 2D3";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "H3R2D3";
+        changeId1(t + " : " + (regex.test(t)));
+
+        t = "h3R 2D3";
+        changeId1(t + " : " + (regex.test(t)));
+
+
+        t = "H3R-2D3";
+        changeId1(t + " : " + (regex.test(t)));
+
+    </script>
+
+</body>
+</html>

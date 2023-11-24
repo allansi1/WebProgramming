@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Arrays</title>
+    <script>
+        function myF1(){
+            var txt = "";
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach(myFunction);
+            function myFunction(value) {
+                txt = txt + value + "<br>";
+            }
+            return txt;
+        }
+        function myF1a() {
+            var txt = "";
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach(myFunction);
+            function myFunction(value, index) {
+                txt = txt +"numbers["+index+"] = " +value + "<br>";
+            }
+            return txt;
+        }
+        function myF2(){
+            var txt = "";
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach((value) => {
+                txt = txt + value + "<br>";
+            });
+            return txt;
+        }
+        function myF2a() {
+            var txt = "";
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach((value, index) => {
+                txt = txt + "numbers[" + index + "] = " + value + "<br>";
+            });
+            return txt;
+        }
+        function myF2b() {
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach((value, index) => {
+                numbers[index] = 2 * value;
+            });
+            return numbers;
+        }
+        function myF3() {
+            var arr = new Array();
+            var numbers = [45, 4, 9, 16, 25];
+            numbers.forEach((value, index) => {
+                arr[index] = 2* value;
+            });
+            return arr;
+        }
+        function myF4() {           
+            var numbers = [45, 4, 9, 16, 25];
+            var arr = numbers.map((value) => {
+                return  2 * value;
+            });
+            return arr;
+        }
+        function myF4a() {
+            var numbers = [45, 4, 9, 16, 25];
+            return numbers.map((value) => {
+                return 2 * value;
+            });         
+        }
+        function myF5() {
+            var numbers = [45, 4, 9, 16, 25];
+            var over18 = numbers.filter((value) => {
+                return value > 18;
+            });
+            return over18          
+        }
+        function changeId1(x) {
+            document.getElementById("id1").innerHTML += " "+ x + "<br>";
+        }        
+    </script>
+</head>
+<body>
+    <p id="id1">Result : <br /></p>
+
+    <input type="button" onclick="changeId1(myF1())" value="myF1()" /> <br />
+    <input type="button" onclick="changeId1(myF1a())" value="myF1a()" /> <br />
+    <input type="button" onclick="changeId1(myF2())" value="myF2()" /> <br />
+    <input type="button" onclick="changeId1(myF2a())" value="myF2a()" /> <br />
+    <input type="button" onclick="changeId1(myF2b())" value="myF2b()" /> <br />
+    <input type="button" onclick="changeId1(myF3())" value="myF3()" /> <br />
+    <input type="button" onclick="changeId1(myF4())" value="myF4()" /> <br />
+    <input type="button" onclick="changeId1(myF4a())" value="myF4a()" /> <br />
+    <input type="button" onclick="changeId1(myF5())" value="myF5()" /> <br />
+
+</body>
+</html>

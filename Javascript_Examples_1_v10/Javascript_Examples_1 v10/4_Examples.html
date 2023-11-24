@@ -1,0 +1,30 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Comparison</title>
+</head>
+<body>
+
+    <p id="id1">Initial text</p>
+
+    <script>
+
+        let w = 'Tests: <br>';
+
+        w = w + '1+"5" = ' + (1 + "5") + '<br>';
+         w = w + '"5"-1 = ' + ("5"-1) + '<br>';
+        w = w + '"5"+(-1) = ' + ("5"+(-1)) + '<br>';
+
+		if (typeof NaN =='number') { w = w + "the type of NaN is number<br>"; }
+        else { w = w + "the type of NaN is not number<br>"; }
+
+		if (isNaN(NaN)) { w = w + "isNaN(NaN) is true<br>"; }
+        else { w = w + "isNaN(NaN) is false<br>"; }
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+
+</body>
+</html>

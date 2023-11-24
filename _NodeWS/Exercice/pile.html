@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="id1">abc(de{f[gh]ij</p>
+    <button id="valider">Valider</button>
+
+    <script>
+        document.getElementById('valider').addEventListener('click', function () {
+            var paragrafo = document.getElementById('id1').textContent;
+            var pilha = [];
+            var abertura = ['{', '[', '<', '('];
+            var fechamento = ['}', ']', '>', ')'];
+
+            for (var i = 0; i < paragrafo.length; i++) {
+                var caractere = paragrafo[i];
+                if (abertura.includes(caractere)) {
+                    pilha.push(caractere);
+                } else if (fechamento.includes(caractere)) {
+                    var ultimoAberto = pilha.pop();
+                    if (!ultimoAberto || abertura.indexOf(ultimoAberto) !== fechamento.indexOf(caractere)) {
+                        alert('Concordância de caracteres incorreta!');
+                        return;
+                    }
+                }
+            }
+
+            if (pilha.length > 0) {
+                alert('Concordância de caracteres incorreta!');
+            } else {
+                alert('Concordância de caracteres correta!');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

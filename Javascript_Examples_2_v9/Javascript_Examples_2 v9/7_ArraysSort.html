@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Arrays Sort</title>   
+</head>
+<body>
+    <p id="id1">Result : <br /></p>
+
+    <script>
+        var p = ['pepperoni', 'ham', 'bacon', 'meatball', 'prosciutto'];
+        document.getElementById('id1').innerHTML += "p = " + p + "<br>";
+        document.getElementById('id1').innerHTML += "p = [" + p.join(", ") + "] <br>";
+        document.getElementById('id1').innerHTML += "p.sort() = [" + p.sort().join(", ") + "] <br>";
+        document.getElementById('id1').innerHTML += "and p is changed by sort<br>";
+        document.getElementById('id1').innerHTML += "p = [" + p.join(", ") + "] <br>";
+        document.getElementById('id1').innerHTML += "<br> re-initialized p <br>";
+        p = ['pepperoni', 'ham', 'bacon', 'meatball', 'prosciutto'];
+        document.getElementById('id1').innerHTML += "p = [" + p.join(", ") + "] <br>";
+        document.getElementById('id1').innerHTML +=
+            "p.sort((a, b) => {return -1* a.localeCompare(b) }) = [" +
+            p.sort((a, b) => { return -1 * a.localeCompare(b) })
+                .join(", ") + "] <br>";
+        /*  
+         * a.localeCompare(b)  --> negative if a comes before b;
+         *                         0 if a = b; 
+         *                         positive if a comes after b.
+         *
+         *   The default is alphabetic ascending order for strings (from A to Z). 
+         *   Multiplying by -1 reverses the order.
+         */
+        document.getElementById('id1').innerHTML += "and p is changed by sort<br>";
+        document.getElementById('id1').innerHTML += "p = [" + p.join(", ") + "] <br>";
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function myF(x) {
+            if (x == 0) throw "error";
+            else return 1 / x;
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var x = 5;
+        if ((x != 0) && (myF(x) > .1)) { alert("Ok - 1") }
+        else { alert("NOK - 1") }
+
+        var x = 20;
+        if ((x != 0) && (myF(x) > .1)) { alert("Ok - 2") }
+        else { alert("NOK - 2") }
+
+        var x = 0;
+        if ((x != 0) && (myF(x) > .1)) { alert("Ok - 3") }
+        else { alert("NOK - 3") }
+
+        try {
+            var x = 0;
+            if ((x != 0) & (myF(x) > .1)) { alert("Ok - 4") }
+            else { alert("NOK - 4 ") }
+        }
+        catch{
+            alert("Ooops.. something went wrong");
+        }
+
+    </script>
+</body>
+</html>

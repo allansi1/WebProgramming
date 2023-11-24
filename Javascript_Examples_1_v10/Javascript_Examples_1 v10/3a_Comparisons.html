@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>JS Comparisons</title>
+</head>
+<body>
+
+    <p id="id1">Initial text</p>
+    <script>
+
+        let w = 'Tests: <br>';
+
+        var x = "5";
+        var y = 5;
+
+        if (x == y) { w = w + "x==y <br>"; }
+        else { w = w + "x!=y <br>"; }
+
+        if ((x + 1) == (y + 1)) { w = w + "(x+1)==(y+1) <br>"; }
+        else { w = w + "(x+1)!=(y+1) <br>"; }
+
+        x = "five";
+        y = 1;
+        x = x - y;
+
+        if (x == x) { w = w + "x==x <br>";}
+        else { w = w + "x!=x <br>"; }
+
+        w = w + "<br> The relation == may not be transitive: <br>";
+
+        if ('0' == 0) { w = w + "'0'==0 is true<br>"; }
+        else { w = w + "'0'== 0 is false<br>"; }
+
+        if (0 == '') { w = w + "0=='' is true<br>"; }
+        else { w = w + "0=='' is false<br>"; }
+
+         if ('0' == '') { w = w + "'0'=='' is true<br>"; }
+        else { w = w + "'0'=='' is false<br>"; }
+
+          w = w + "<br> Another example: <br>";
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        if (false == '') { w = w + "false=='' is true<br>"; }
+        else { w = w + "false=='' is false<br>"; }
+
+        if ('0' == '') { w = w + "'0'=='' is true<br>"; }
+        else { w = w + "'0'=='' is false<br>"; }
+
+        w = w + "<br> Sometimes it is transitive: <br>";
+
+        if ('0' == 0) { w = w + "'0'==0 is true<br>"; }
+        else { w = w + "'0'== 0 is false<br>"; }
+
+        if (0 == false) { w = w + "0==false is true<br>"; }
+        else { w = w + "0==false is false<br>"; }
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        w = w + "<br> BUT, 0 and '0' are treated differently inside a condition: <br>";
+
+        if (0) { w = w + "0 is treated as true<br>"; }
+        else { w = w + "0 is treated as false<br>"; }
+
+        if ('0') { w = w + "'0' is treated as true<br>"; }
+        else { w = w + "'0' is treated as false<br>"; }
+
+        w = w + "<br> PAY ATTENTION: <br>";
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        if ('0' == true) { w = w + "'0'==true is true<br>"; }
+        else { w = w + "'0'==true is false<br>"; }
+
+        w = w + "BUT: <br>";
+
+        if ('0') { w = w + "'0' is treated as true<br>"; }
+        else { w = w + "'0' is treated as false<br>"; }
+
+         w = w + "<br> SO, '0' is treated as true inside !'0', so: <br>";
+
+         if ((!'0') == false) { w = w + "(!'0')==false is true<br>"; }
+        else { w = w + "(!'0')==false is false<br>"; }
+
+        if (!'0') { w = w + "!'0' is treated as true<br>"; }
+        else { w = w + "!'0' is treated as false<br>"; }
+
+         w = w + "<br> PAY ATTENTION: <br>";
+
+        if ('0' == false) { w = w + "'0'==false is true<br>"; }
+        else { w = w + "'0'==false is false<br>"; }
+
+        if ((!'0') == false) { w = w + "(!'0')==false is true<br>"; }
+        else { w = w + "(!'0')==false is false<br>"; }
+
+        if ('0' == !'0') { w = w + "'0'==!'0' is true<br>"; }
+        else { w = w + "'0'==!'0' is false<br>"; }
+
+        document.getElementById("id1").innerHTML = w;
+    </script>
+
+</body>
+</html>
